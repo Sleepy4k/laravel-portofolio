@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Page\HomeController;
 use App\Http\Controllers\Page\AboutController;
 use App\Http\Controllers\Page\IndexController;
 use App\Http\Controllers\Page\ContactController;
