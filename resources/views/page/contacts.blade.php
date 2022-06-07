@@ -6,7 +6,7 @@
     </div>
 
     <form method="post" action="{{route('contact.store')}}">
-        {{csrf_field()}}
+        @csrf
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="inputname" placeholder="Nama" name="nama">
             <label for="inputname">Nama</label>
