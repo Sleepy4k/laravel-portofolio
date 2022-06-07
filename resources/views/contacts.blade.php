@@ -5,7 +5,7 @@
         <h2 class="fw-bold">Contact Us</h2>
     </div>
 
-    <form method="post" action="{{route('contacts.store')}}">
+    <form method="post" action="{{route('contact.store')}}">
         {{csrf_field()}}
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="inputname" placeholder="Nama" name="nama">

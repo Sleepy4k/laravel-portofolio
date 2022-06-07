@@ -15,13 +15,13 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::get('/', function () {
+Route::get('', function () {
     return view('index', [
         "title" => "Beranda"
     ]);
 });
 
-Route::get('/about', function () {
+Route::get('about', function () {
     return view('about', [
         "title" => "About",
         "nama" => "Apri Pandu Wicaksono",
@@ -30,16 +30,21 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/gallery', function () {
+Route::get('gallery', function () {
     return view('gallery', [
         "title" => "Gallery"
     ]);
 });
 
-Route::resource('/contacts', ContactController::class);
+route::get('contact/create', [ContactController::class, 'create'])->name('contact.create');
+route::post('contact/store', [ContactController::class, 'store'])->name('contact.store');
 
 Auth::routes();
 
-Route::group(['middleware' => ['auth']], function() {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['auth']], function () {
+    route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    route::get('contact/index', [ContactController::class, 'index'])->name('contact.index');
+    route::get('contact/{id}/edit', [ContactController::class, 'edit'])->name('contact.edit');
+    route::post('contact/{id}/update', [ContactController::class, 'update'])->name('contact.update');
+    route::get('contact/{id}/destroy', [ContactController::class, 'destroy'])->name('contact.destroy');
 });
