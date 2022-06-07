@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Page;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 
@@ -25,7 +26,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return view('contacts', [
+        return view('page/contacts', [
             "title" => "contact"
         ]);
     }
