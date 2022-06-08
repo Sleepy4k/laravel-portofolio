@@ -4,7 +4,7 @@
         <label>
             Email Address
         </label>
-        <input class="au-input au-input--full" type="email" name="email" placeholder="example@gmail.com">
+        <input class="au-input au-input--full" type="email" name="email" value="{{ old('email') }}" placeholder="example@gmail.com" required autofocus>
     </div>
 
     @error('email')
@@ -17,7 +17,7 @@
         <label>
             Password
         </label>
-        <input class="au-input au-input--full" type="password" name="password" placeholder="******">
+        <input class="au-input au-input--full" type="password" name="password" value="{{ old('password') }}" placeholder="******" required autofocus>
     </div>
     
     @error('password')

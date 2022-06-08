@@ -4,4 +4,4 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/style-starter.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/main-load.css') }}">

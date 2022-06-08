@@ -4,7 +4,7 @@
         <label>
             Name
         </label>
-        <input class="au-input au-input--full" type="text" name="name" placeholder="Benjamin4k">
+        <input class="au-input au-input--full" type="text" name="name" value="{{ old('name') }}" placeholder="Benjamin4k" required autofocus>
     </div>
 
     @error('name')
@@ -17,7 +17,7 @@
         <label>
             Email Address
         </label>
-        <input class="au-input au-input--full" type="email" name="email" placeholder="example@gmail.com">
+        <input class="au-input au-input--full" type="email" name="email" value="{{ old('email') }}" placeholder="example@gmail.com" required autofocus>
     </div>
 
     @error('email')
@@ -30,7 +30,7 @@
         <label>
             Password
         </label>
-        <input class="au-input au-input--full" type="password" name="password" placeholder="*******">
+        <input class="au-input au-input--full" type="password" name="password" placeholder="*******" required autofocus>
     </div>
 
     @error('password')
@@ -43,7 +43,7 @@
         <label>
             Password Confirmation
         </label>
-        <input class="au-input au-input--full" type="password" name="password_confirmation" placeholder="*******">
+        <input class="au-input au-input--full" type="password" name="password_confirmation" placeholder="*******" required autofocus>
     </div>
 
     @error('password_confirmation')
