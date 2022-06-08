@@ -1,5 +1,7 @@
 @extends('layouts.app')
-@section('title', 'Apri | Data Contact')
+
+@section('title', 'Edit Data Contact')
+
 @section('content')
     <div class="main-content">
         <div class="section__content section__content--p30">

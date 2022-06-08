@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         @include('partials.meta')
 
-        <title>Apri | Dashboard</title>
+        <title>Apri | @yield('title')</title>
 
         @include('partials.app.css')
     </head>
