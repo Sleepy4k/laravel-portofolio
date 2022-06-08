@@ -13,7 +13,7 @@
             <div class="card">
                 <div class="card-header">
                     <strong>
-                        Form Edit Data Contact Us
+                        Edit Data
                     </strong>
                 </div>
                 <div class="card-body card-block">
