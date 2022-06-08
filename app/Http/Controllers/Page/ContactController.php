@@ -39,9 +39,17 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        $contact = Contact::create($request->all());
+        $request->validate([
+            'nama' => 'required|max:255',
+            'email' => 'required|max:255|email:dns',
+            'pesan' => 'required|max:255'
+        ]);
+
+        $input = $request->only("nama", "email", "pesan");
+
+        $contact = Contact::create($input);
         $contact->save();
+
         return redirect()->route('contact.create')->with('status', 'Data berhasil ditambahkan');
     }
 
@@ -77,8 +85,16 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nama' => 'required|max:255',
+            'email' => 'required|max:255|email:dns',
+            'pesan' => 'required|max:255'
+        ]);
+
+        $input = $request->only("nama", "email", "pesan");
+
         $contact = Contact::findOrFail($id);
-        $contact->update($request->all());
+        $contact->update($input);
         $contact->save();
         return redirect()->route('contact.index');
     }
