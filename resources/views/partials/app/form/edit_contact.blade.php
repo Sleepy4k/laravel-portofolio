@@ -4,7 +4,7 @@
         <label class=" form-control-label">
             Nama
         </label>
-        <input type="text" name="nama" class="@error('nama') is-invalid @enderror form-control" value="{{$contact->nama}}">
+        <input type="text" name="nama" class="@error('nama') is-invalid @enderror form-control" value="{{old('nama', $contact->nama)}}" required autofocus>
     </div>
 
     @error('nama')
@@ -17,7 +17,7 @@
         <label class=" form-control-label">
             Email
         </label>
-        <input type="email" name="email" class="@error('email') is-invalid @enderror form-control" value="{{$contact->email}}">
+        <input type="email" name="email" class="@error('email') is-invalid @enderror form-control" value="{{old('email', $contact->email}}" required autofocus>
     </div>
 
     @error('email')
@@ -30,7 +30,7 @@
         <label class=" form-control-label">
             Pesan
         </label>
-        <textarea class="@error('pesan') is-invalid @enderror form-control" style="height: 100px" name="pesan">{{$contact->pesan}}</textarea>
+        <textarea class="@error('pesan') is-invalid @enderror form-control" style="height: 100px" name="pesan" required autofocus>{{old('nama', $contact->pesan}}</textarea>
     </div>
 
     @error('pesan')
