@@ -18,3 +18,4 @@
 
 <!-- Main CSS-->
 <link href="{{asset('admin/css/theme.css')}}" rel="stylesheet" media="all">
+<link href="{{ asset('css/error.css') }}" rel="stylesheet">
