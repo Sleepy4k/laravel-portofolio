@@ -20,7 +20,7 @@
                         <i class="fas fa-edit"></i>
                     </a> 
                     | 
-                    <a href="{{route('contact.destroy', $contact->id)}}" style="color:red">
+                    <a href="{{route('contact.destroy', $contact->id)}}" style="color:red" class="button delete-confirm">
                         <i class="fas fa-trash"></i>
                     </a>
                 </td>
