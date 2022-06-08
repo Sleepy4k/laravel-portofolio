@@ -1,3 +1,4 @@
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="{{asset('admin/vendor/jquery-3.2.1.min.js')}}"></script>
 
 <script src="{{asset('admin/vendor/bootstrap-4.1/popper.min.js')}}"></script>
@@ -15,3 +16,5 @@
 <script src="{{asset('admin/vendor/select2/select2.min.js')}}"></script>
 
 <script src="{{asset('admin/js/main.js')}}"></script>
+<script src="{{asset('javascript/image-preview.js')}}"></script>
+<script src="{{asset('javascript/swal.js')}}"></script>
