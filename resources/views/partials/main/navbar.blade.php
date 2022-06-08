@@ -16,7 +16,7 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link {{ ( $title === 'Gallery') ? 'active' : '' }}" href="{{ route('index.home') }}">
+					<a class="nav-link {{ ( $title === 'Gallery') ? 'active' : '' }}" href="{{ route('index.gallery') }}">
 						Gallery
 					</a>
 				</li>
