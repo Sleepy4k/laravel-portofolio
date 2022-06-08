@@ -10,13 +10,25 @@
                 <li>
                     <a href="{{ route('home') }}">
                     <i class="fas fa-chart-line"></i>
-                        Dashboard
+                        Data Dashboard
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('contact.index') }}">
-                    <i class="fas fa-chart-bar"></i>
-                        Data Contact Us
+                    <i class="fas fa-table"></i>
+                        Data Contact
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('gallery.index') }}">
+                    <i class="fas fa-table"></i>
+                        Data Gallery
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('about.index') }}">
+                    <i class="fas fa-table"></i>
+                        Data About
                     </a>
                 </li>
                 <li class="has-sub">
