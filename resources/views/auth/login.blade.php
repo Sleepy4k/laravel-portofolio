@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        @include('partials/meta')
+        @include('partials.meta')
 
         <title>Apri | Login</title>
 
-        @include('partials/css')
+        @include('partials.app.css')
     </head>
     <body class="animsition">
         <div class="page-wrapper">
@@ -27,17 +27,32 @@
                                         </label>
                                         <input class="au-input au-input--full" type="email" name="email" placeholder="example@gmail.com">
                                     </div>
+
+                                    @error('email')
+                                        <span class="error-display">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+                                    
                                     <div class="form-group">
                                         <label>
                                             Password
                                         </label>
                                         <input class="au-input au-input--full" type="password" name="password" placeholder="******">
                                     </div>
+                                    
+                                    @error('password')
+                                        <span class="error-display">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+                                    
                                     <div class="login-checkbox">
                                         <label>
                                             <input type="checkbox" name="remember">Remember Me
                                         </label>
                                     </div>
+
                                     <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">
                                         sign in
                                     </button>
@@ -54,6 +69,6 @@
                 </div>
             </div>
         </div>
-        @include('partials/script')
+        @include('partials.app.script')
     </body>
 </html>

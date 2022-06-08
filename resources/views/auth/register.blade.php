@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        @include('partials/meta')
+        @include('partials.meta')
 
         <title>Apri | Register</title>
 
-        @include('partials/css')
+        @include('partials.app.css')
     </head>
     <body class="animsition">
         <div class="page-wrapper">
@@ -27,24 +27,52 @@
                                         </label>
                                         <input class="au-input au-input--full" type="text" name="name" placeholder="Benjamin4k">
                                     </div>
+
+                                    @error('name')
+                                        <span class="error-display">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+
                                     <div class="form-group">
                                         <label>
                                             Email Address
                                         </label>
                                         <input class="au-input au-input--full" type="email" name="email" placeholder="example@gmail.com">
                                     </div>
+
+                                    @error('email')
+                                        <span class="error-display">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+                                    
                                     <div class="form-group">
                                         <label>
                                             Password
                                         </label>
                                         <input class="au-input au-input--full" type="password" name="password" placeholder="*******">
                                     </div>
+
+                                    @error('password')
+                                        <span class="error-display">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+
                                     <div class="form-group">
                                         <label>
                                             Password Confirmation
                                         </label>
                                         <input class="au-input au-input--full" type="password" name="password_confirmation" placeholder="*******">
                                     </div>
+
+                                    @error('password_confirmation')
+                                        <span class="error-display">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+
                                     <div class="login-checkbox">
                                         <label>
                                             <input type="checkbox" name="aggree">
@@ -70,6 +98,6 @@
                 </div>
             </div>
         </div>
-        @include('partials/script')
+        @include('partials.app.script')
     </body>
 </html>

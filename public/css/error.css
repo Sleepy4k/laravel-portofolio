@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+.error-display {
+    font-family: 'Patrick Hand', cursive;
+    color: red;
+}
