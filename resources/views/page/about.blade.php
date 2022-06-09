@@ -76,7 +76,6 @@
 								</li>
 							</ul>
 						</div>
-						<a href="{{ asset('storage/files/cv/'.$about->cv) }}" class="btn btn-style mt-5">Download CV</a>
 					</div>
 				@else
 					<div class="col-lg-4">
@@ -150,7 +149,6 @@
 								</li>
 							</ul>
 						</div>
-						<a href="{{ asset('storage/files/cv/'.$about->cv) }}" class="btn btn-style mt-5">Download CV</a>
 					</div>
 				@endif
 			@endforeach
