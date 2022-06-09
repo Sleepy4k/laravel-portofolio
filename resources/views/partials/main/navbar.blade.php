@@ -43,7 +43,7 @@
 			@else
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item">
-						<a href="{{ route('contact.index') }}" class="nav-link">
+						<a href="{{ route('home') }}" class="nav-link">
 							Dashboard
 						</a>
 					</li>
