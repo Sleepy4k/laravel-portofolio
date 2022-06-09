@@ -34,18 +34,18 @@
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fas fa-tachometer-alt"></i>
-                        Example
+                        Halaman
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
                             <a href="{{ route('home') }}">
-                                Example 1
+                                Data Menu
                             </a>
                             <a href="{{ route('home') }}">
-                                Example 2
+                                Data Halaman
                             </a>
                             <a href="{{ route('home') }}">
-                                Example 3
+                                Data Role
                             </a>
                         </li>
                     </ul>
