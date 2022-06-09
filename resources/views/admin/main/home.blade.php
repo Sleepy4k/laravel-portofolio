@@ -22,19 +22,33 @@
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <strong class="card-title">Typography</strong>
+                                            <strong class="card-title">
+                                                Typography
+                                            </strong>
                                         </div>
                                         <div class="card-body">
                                             <div class="typo-headers">
-                                                <h1 class="pb-2 display-4">Very Important Information H1</h1>
-                                                <h2 class="pb-2 display-5">Sections & Modal Names H2</h2>
-                                                <h3 class="pb-2 display-5">Articles & Block Headings H3</h3>
-                                                <h4 class="pb-2 display-5">Random Tiny Heading H4</h4>
-                                                <h5 class="pb-2 display-5">Random Tiny Heading H5</h5>
-                                                <h6 class="pb-4 display-5">Random Tiny Heading H6</h6>
+                                                <h1 class="pb-2 display-4">
+                                                    Very Important Information H1
+                                                </h1>
+                                                <h2 class="pb-2 display-5">
+                                                    Sections & Modal Names H2
+                                                </h2>
+                                                <h3 class="pb-2 display-5">
+                                                    Articles & Block Headings H3
+                                                </h3>
+                                                <h4 class="pb-2 display-5">
+                                                    Random Tiny Heading H4
+                                                </h4>
+                                                <h5 class="pb-2 display-5">
+                                                    Random Tiny Heading H5
+                                                </h5>
+                                                <h6 class="pb-4 display-5">
+                                                    Random Tiny Heading H6
+                                                </h6>
                                             </div>
                                             <div class="typo-articles">
-                                                <p> The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, <span class="bg-flat-color-1 text-light">woodlands</span>, thorny scrublands, <span class="clickable-text">mountains</span> , and coastal hills. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins and habitat destruction. Grévy's zebra and the mountain <mark>highlighted text</mark> zebra are endangered. </p>
+                                                <p>The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, <span class="bg-flat-color-1 text-light">woodlands</span>, thorny scrublands, <span class="clickable-text">mountains</span> , and coastal hills. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins and habitat destruction. Grévy's zebra and the mountain <mark>highlighted text</mark> zebra are endangered. </p>
                                                 <blockquote class="blockquote mt-3 text-right">
                                                     <p> Blockquotes. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins. </p>
                                                     <footer class="blockquote-footer">Jefferey Lebowski</footer>

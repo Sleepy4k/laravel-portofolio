@@ -27,7 +27,9 @@
     @enderror
 
     <div class="form-input">
-        <label for="inputnote">Pesan</label>
+        <label for="inputnote">
+            Pesan
+        </label>
         <textarea class="form-control" name="pesan" id="inputnote" placeholder="Masukan Pesan" value="{{ old('pesan') }}" style="height: 100px" required autofocus></textarea>
     </div>
 
@@ -38,6 +40,8 @@
     @enderror
 
     <div>
-        <button type="submit" class="btn btn-style">Kirim Pesan</button>
+        <button type="submit" class="btn btn-style">
+            Kirim Pesan
+        </button>
     </div>
 </form>
