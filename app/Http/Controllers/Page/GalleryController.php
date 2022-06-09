@@ -57,7 +57,7 @@ class GalleryController extends Controller
             'title' => 'required|max:255|unique:galleries',
             'desc' => 'required|max:255',
             'link' => 'required|max:255',
-            'image' => 'required|image|mimes:jpg,png,jpeg,svg|max:2048',
+            'image' => 'required|image|mimes:jpg,png,jpeg,svg|max:4092',
         ]);
 
         $input = $request->only("title", "desc", 'link', "image");
@@ -122,7 +122,7 @@ class GalleryController extends Controller
             'title' => 'required|max:255',
             'desc' => 'required|max:255',
             'link' => 'required|max:255',
-            'image' => 'image|mimes:jpg,png,jpeg,svg|max:2048',
+            'image' => 'image|mimes:jpg,png,jpeg,svg|max:4092',
         ]);
 
         $input = $request->only("title", "desc", 'link', "image");
@@ -153,7 +153,7 @@ class GalleryController extends Controller
         $gallery->update($input);
         $gallery->save();
 
-        return redirect()->route('gallery.index');
+        return redirect()->route('gallery.index')->with('status', 'Data berhasil ditambahkan');
     }
 
     /**

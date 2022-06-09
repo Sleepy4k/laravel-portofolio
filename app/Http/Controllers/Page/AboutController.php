@@ -63,7 +63,7 @@ class AboutController extends Controller
             'phone' => 'required|max:255',
             'email' => 'required|max:255',
             'bio' => 'required',
-            'image' => 'required|image|mimes:jpg,png,jpeg,svg|max:2048'
+            'image' => 'required|image|mimes:jpg,png,jpeg,svg|max:4092'
         ]);
 
         $input = $request->only("title", "name", 'bday', "phone", "email", "bio", "image");
