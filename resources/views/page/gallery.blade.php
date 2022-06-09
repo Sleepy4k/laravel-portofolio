@@ -8,39 +8,47 @@
 				<h3 class="title-style">Berikut Merupakan Project Saya</h3>
 			</div>
 			<div class="row">
-				@foreach ($galleries as $gallery)
-					@if(!empty(file_exists('storage/images/gallery/'.$gallery->image)))
-						<div class="col-lg-4 col-md-6 item mt-4 pt-lg-2">
-							<a href="{{ $gallery->link }}" src="{{ asset('storage/images/gallery/'.$gallery->image) }}" data-lightbox="example-set" data-title="{{ $gallery->title }}" class="zoom d-block">
-								<img class="card-img-bottom d-block" style="max-width: 15em; max-height: 15em;" src="{{ asset('storage/images/gallery/'.$gallery->image) }}" alt="none">
-								<span class="overlay__hover"></span>
-								<span class="hover-content">
-									<span class="title">
-										{{ $gallery->title }}
-									</span>
-									<span class="content">
-										{{ $gallery->desc }}
-									</span>
-								</span>
-							</a>
+				@if($galleries->count() <= 0)
+					<div class="col-lg-4">
+						<div class="position-relative">
+							<div style="text-align: center;">Belum Ada Profile Yang di tulis</div>
 						</div>
-					@else
-						<div class="col-lg-4 col-md-6 item mt-4 pt-lg-2">
-							<a href="{{ $gallery->link }}" src="{{ asset('admin/images/bg-title-01.jpg') }}" data-lightbox="example-set" data-title="{{ $gallery->title }}" class="zoom d-block">
-								<img class="card-img-bottom d-block" src="{{ asset('admin/images/bg-title-01.jpg') }}" alt="none">
-								<span class="overlay__hover"></span>
-								<span class="hover-content">
-									<span class="title">
-										{{ $gallery->title }}
+					</div>
+				@else
+					@foreach ($galleries as $gallery)
+						@if(!empty(file_exists('storage/images/gallery/'.$gallery->image)))
+							<div class="col-lg-4 col-md-6 item mt-4 pt-lg-2">
+								<a href="{{ $gallery->link }}" src="{{ asset('storage/images/gallery/'.$gallery->image) }}" data-lightbox="example-set" data-title="{{ $gallery->title }}" class="zoom d-block">
+									<img class="card-img-bottom d-block" style="max-width: 15em; max-height: 15em;" src="{{ asset('storage/images/gallery/'.$gallery->image) }}" alt="none">
+									<span class="overlay__hover"></span>
+									<span class="hover-content">
+										<span class="title">
+											{{ $gallery->title }}
+										</span>
+										<span class="content">
+											{{ $gallery->desc }}
+										</span>
 									</span>
-									<span class="content">
-										{{ $gallery->desc }}
+								</a>
+							</div>
+						@else
+							<div class="col-lg-4 col-md-6 item mt-4 pt-lg-2">
+								<a href="{{ $gallery->link }}" src="{{ asset('admin/images/bg-title-01.jpg') }}" data-lightbox="example-set" data-title="{{ $gallery->title }}" class="zoom d-block">
+									<img class="card-img-bottom d-block" src="{{ asset('admin/images/bg-title-01.jpg') }}" alt="none">
+									<span class="overlay__hover"></span>
+									<span class="hover-content">
+										<span class="title">
+											{{ $gallery->title }}
+										</span>
+										<span class="content">
+											{{ $gallery->desc }}
+										</span>
 									</span>
-								</span>
-							</a>
-						</div>
-					@endif
-				@endforeach
+								</a>
+							</div>
+						@endif
+					@endforeach
+				@endif
 			</div>
 		</div>
 	</section>
