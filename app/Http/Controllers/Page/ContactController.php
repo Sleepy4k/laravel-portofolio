@@ -27,7 +27,7 @@ class ContactController extends Controller
     public function create()
     {
         return view('page/contacts', [
-            "title" => "contact"
+            "title" => "Contacts"
         ]);
     }
 
