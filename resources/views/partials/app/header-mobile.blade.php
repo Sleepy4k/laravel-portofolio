@@ -16,33 +16,45 @@
     <nav class="navbar-mobile">
         <div class="container-fluid">
             <ul class="navbar-mobile__list list-unstyled">
-            <li>
+                <li>
                     <a href="{{ route('home') }}">
                     <i class="fas fa-chart-line"></i>
-                        Dashboard
+                        Data Dashboard
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('contact.index') }}">
-                    <i class="fas fa-chart-bar"></i>
-                        Data Contact Us
+                    <i class="fas fa-table"></i>
+                        Data Contact
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('gallery.index') }}">
+                    <i class="fas fa-table"></i>
+                        Data Gallery
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('about.index') }}">
+                    <i class="fas fa-table"></i>
+                        Data About
                     </a>
                 </li>
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fas fa-tachometer-alt"></i>
-                        Example
+                        Halaman
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
                             <a href="{{ route('home') }}">
-                                Example 1
+                                Data Menu
                             </a>
                             <a href="{{ route('home') }}">
-                                Example 2
+                                Data Halaman
                             </a>
                             <a href="{{ route('home') }}">
-                                Example 3
+                                Data Role
                             </a>
                         </li>
                     </ul>
