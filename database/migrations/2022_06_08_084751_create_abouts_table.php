@@ -22,7 +22,6 @@ class CreateAboutsTable extends Migration
             $table->string("email");
             $table->longText("bio");
             $table->string('image')->default('iamge_not_found');
-            $table->string('cv')->default('cv_not_found');
             $table->timestamps();
         });
     }

@@ -23,7 +23,6 @@ class AboutSeeder extends Seeder
             'email' => 'Pandu300478@gmail.com',
             'bio' => 'Saya adalah developer website, yang memahami bahasa php, vue, js, lua',
             'image' => '',
-            'cv' => '',
             'created_at' => $now,
             'updated_at' => $now
         ];
