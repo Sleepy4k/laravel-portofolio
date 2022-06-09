@@ -19,37 +19,45 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($galleries as $index => $gallery)
+        @if($galleries->count() <= 0)
             <tr>
-                <td>
-                    {{$index + 1}}
+                <td colspan=9 style="text-align: center;"> 
+                    Belum Ada Data Yang Tersedia 
                 </td>
-                <td>
-                    {{$gallery->title}}
-                </td>
-                <td>
-                    {{$gallery->desc}}
-                </td>
-                @if(!empty(file_exists('storage/images/gallery/'.$gallery->image)))
+            </tr>
+        @else
+            @foreach ($galleries as $index => $gallery)
+                <tr>
                     <td>
-                        <img height="35px" width="35px" src="{{ asset('storage/images/gallery/'.$gallery->image) }}"/>
+                        {{$index + 1}}
                     </td>
-                @else
                     <td>
-                        <img height="35px" width="35px" src="{{ asset('admin/images/bg-title-01.jpg') }}"/>
+                        {{$gallery->title}}
                     </td>
-                @endif
-                <td>
-                    <a href="{{route('gallery.edit', $gallery->id)}}">
-                        <i class="fas fa-edit"></i>
-                    </a> 
-                    | 
-                    <a href="{{route('gallery.destroy', $gallery->id)}}" style="color:red" class="button delete-confirm">
-                        <i class="fas fa-trash"></i>
-                    </a>
-                </td>
-            </tr> 
-        @endforeach
+                    <td>
+                        {{$gallery->desc}}
+                    </td>
+                    @if(!empty(file_exists('storage/images/gallery/'.$gallery->image)))
+                        <td>
+                            <img height="35px" width="35px" src="{{ asset('storage/images/gallery/'.$gallery->image) }}"/>
+                        </td>
+                    @else
+                        <td>
+                            <img height="35px" width="35px" src="{{ asset('admin/images/bg-title-01.jpg') }}"/>
+                        </td>
+                    @endif
+                    <td>
+                        <a href="{{route('gallery.edit', $gallery->id)}}">
+                            <i class="fas fa-edit"></i>
+                        </a> 
+                        | 
+                        <a href="{{route('gallery.destroy', $gallery->id)}}" style="color:red" class="button delete-confirm">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr> 
+            @endforeach
+        @endif
     </tbody>
 </table>
 
