@@ -4,7 +4,7 @@
 
 <p align='center'>
     <b>
-        <a href='https://discord.esx-framework.org/'>
+        <a href='https://discord.gg/7rFQQ6yeW7'>
             Discord
         </a>
     </b>
