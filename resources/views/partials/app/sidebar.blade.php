@@ -31,25 +31,6 @@
                         Data About
                     </a>
                 </li>
-                <li class="has-sub">
-                    <a class="js-arrow" href="#">
-                        <i class="fas fa-tachometer-alt"></i>
-                        Halaman
-                    </a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="{{ route('home') }}">
-                                Data Menu
-                            </a>
-                            <a href="{{ route('home') }}">
-                                Data Halaman
-                            </a>
-                            <a href="{{ route('home') }}">
-                                Data Role
-                            </a>
-                        </li>
-                    </ul>
-                </li>
             </ul>
         </nav>
     </div>
