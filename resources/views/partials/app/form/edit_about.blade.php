@@ -4,7 +4,7 @@
         <label class=" form-control-label">
             Judul
         </label>
-        <input type="text" name="title" class="@error('title') is-invalid @enderror form-control" value="{{ old('title', $contact->title) }}" required autofocus>
+        <input type="text" name="title" class="@error('title') is-invalid @enderror form-control" value="{{ old('title', $about->title) }}" required autofocus>
     </div>
 
     @error('title')
@@ -17,7 +17,7 @@
         <label class=" form-control-label">
             Nama
         </label>
-        <input type="text" name="name" class="@error('name') is-invalid @enderror form-control" value="{{ old('name', $contact->name) }}" required autofocus>
+        <input type="text" name="name" class="@error('name') is-invalid @enderror form-control" value="{{ old('name', $about->name) }}" required autofocus>
     </div>
 
     @error('name')
@@ -30,7 +30,7 @@
         <label class=" form-control-label">
             Umur
         </label>
-        <input type="text" name="bday" class="@error('bday') is-invalid @enderror form-control" value="{{ old('bday', $contact->bday) }}" required autofocus>
+        <input type="text" name="bday" class="@error('bday') is-invalid @enderror form-control" value="{{ old('bday', $about->bday) }}" required autofocus>
     </div>
 
     @error('bday')
@@ -43,7 +43,7 @@
         <label class=" form-control-label">
             Nomer Handphone
         </label>
-        <input type="text" name="phone" class="@error('phone') is-invalid @enderror form-control" value="{{ old('phone', $contact->phone) }}" required autofocus>
+        <input type="text" name="phone" class="@error('phone') is-invalid @enderror form-control" value="{{ old('phone', $about->phone) }}" required autofocus>
     </div>
 
     @error('phone')
@@ -56,7 +56,7 @@
         <label class=" form-control-label">
             Email
         </label>
-        <input type="text" name="email" class="@error('email') is-invalid @enderror form-control" value="{{ old('email', $contact->email) }}" required autofocus>
+        <input type="text" name="email" class="@error('email') is-invalid @enderror form-control" value="{{ old('email', $about->email) }}" required autofocus>
     </div>
 
     @error('email')
@@ -69,7 +69,7 @@
         <label class=" form-control-label">
             Bio
         </label>
-        <input type="text" name="bio" class="@error('bio') is-invalid @enderror form-control" value="{{ old('bio', $contact->bio) }}" required autofocus>
+        <input type="text" name="bio" class="@error('bio') is-invalid @enderror form-control" value="{{ old('bio', $about->bio) }}" required autofocus>
     </div>
 
     @error('bio')
