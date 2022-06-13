@@ -3,7 +3,7 @@
     <head>
         @include('partials.meta')
 
-        <title>Apri | @yield('title')</title>
+        <title>{{ config('app.name', 'Apri') }} | @yield('title')</title>
 
         @include('partials.app.css')
     </head>
