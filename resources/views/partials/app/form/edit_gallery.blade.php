@@ -4,7 +4,7 @@
         <label class=" form-control-label">
             Judul
         </label>
-        <input type="text" name="title" class="@error('title') is-invalid @enderror form-control" value="{{ old('title', $contact->title) }}" required autofocus>
+        <input type="text" name="title" class="@error('title') is-invalid @enderror form-control" value="{{ old('title', $gallery->title) }}" required autofocus>
     </div>
 
     @error('title')
@@ -17,7 +17,7 @@
         <label class=" form-control-label">
             Deskripsi
         </label>
-        <input type="text" name="desc" class="@error('desc') is-invalid @enderror form-control" value="{{ old('desc', $contact->desc) }}" required autofocus>
+        <input type="text" name="desc" class="@error('desc') is-invalid @enderror form-control" value="{{ old('desc', $gallery->desc) }}" required autofocus>
     </div>
 
     @error('desc')
@@ -30,7 +30,7 @@
         <label class=" form-control-label">
             Link
         </label>
-        <input type="text" name="link" class="@error('link') is-invalid @enderror form-control" value="{{ old('link', $contact->link) }}" required autofocus>
+        <input type="text" name="link" class="@error('link') is-invalid @enderror form-control" value="{{ old('link', $gallery->link) }}" required autofocus>
     </div>
 
     @error('link')
