@@ -19,7 +19,7 @@
         </tr>
     </thead>
     <tbody>
-        @if($contacts->count() <= 0)
+        @if (count($contacts) <= 0)
             <tr>
                 <td colspan=9 style="text-align: center;"> 
                     Belum Ada Data Yang Tersedia 
