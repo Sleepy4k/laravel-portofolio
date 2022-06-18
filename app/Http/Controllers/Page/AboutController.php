@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers\Page;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use App\Models\About;
-use File;
+use Illuminate\Http\Request;
+use App\Http\Traits\FilesTrait;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class AboutController extends Controller
 {
+    use FilesTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -18,13 +20,11 @@ class AboutController extends Controller
     public function index()
     {
         $abouts = About::paginate(10);
-        return view('page/about', [
-            "title" => "About",
-            "nama" => "Apri Pandu Wicaksono",
-            "email" => "pandu300478@gmail.com",
-            "gambar" => "apri.png",
-            "abouts" => $abouts
-        ]);
+        $data = [
+            $title = "About"
+        ];
+
+        return view("page/about", compact("abouts", "data"));
     }
 
     /**
@@ -35,7 +35,8 @@ class AboutController extends Controller
     public function main()
     {
         $abouts = About::paginate(10);
-        return view('admin/about/index', compact('abouts'));
+
+        return view("admin/about/index", compact("abouts"));
     }
 
     /**
@@ -45,7 +46,7 @@ class AboutController extends Controller
      */
     public function create()
     {
-        return view('admin/about/add');
+        return view("admin/about/add");
     }
 
     /**
@@ -57,50 +58,32 @@ class AboutController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255|unique:abouts',
-            'name' => 'required|max:255',
-            'bday' => 'required|max:255',
-            'phone' => 'required|max:255',
-            'email' => 'required|max:255',
-            'bio' => 'required',
-            'image' => 'required|image|mimes:jpg,png,jpeg,svg|max:4092'
+            "title" => "required|max:255|unique:abouts",
+            "name" => "required|max:255",
+            "bday" => "required|max:255",
+            "phone" => "required|max:255",
+            "email" => "required|max:255",
+            "bio" => "required",
+            "image" => "required|image|mimes:jpg,png,jpeg,svg|max:4092|dimensions:min_width=100,min_height=100"
         ]);
 
-        $input = $request->only("title", "name", 'bday', "phone", "email", "bio", "image");
+        $input = $request->only("title", "name", "bday", "phone", "email", "bio", "image");
 
-        if ($request->file('image')) {
-            $path_dir = 'public/images/about';
-            $image = $request->file('image');
+        if ($request->file("image")) {
+            $path_dir = "public/images";
+            $file = $request->file("image");
 
-            /** 
-             * Use getClientOriginalName() for original file name by user
-             * Use uniqid() for name with unique name
-             * Use data(xxx) for name with current date
-             * Use Str::random(value) for name with random string
-             * Use default laravel facade system
-            */
-            $name = $image->getClientOriginalName();
-            $fake_name = Str::random(8);
-            $path = $request->file('image')->storeAs($path_dir, $fake_name.' - '.$name);
-            
-            $input['image'] = $fake_name.' - '.$name;
+            $input["image"] = $this->save_file(
+                $path_dir,
+                $file->getClientOriginalName(),
+            );
+
+            $file->storeAs($path_dir, $input["image"]);
         }
 
-        $about = About::create($input);
-        $about->save();
+        About::create($input)->save();
 
-        return redirect()->route('about.index')->with('status', 'Data berhasil ditambahkan');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\About  $about
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->route("about.index")->with("status", "Data berhasil ditambahkan");
     }
 
     /**
@@ -112,7 +95,7 @@ class AboutController extends Controller
     public function edit($id)
     {
         $about = About::findOrFail($id);
-        return view('admin/about/edit', compact('about'));
+        return view("admin/about/edit", compact("about"));
     }
 
     /**
@@ -125,44 +108,38 @@ class AboutController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required|max:255',
-            'name' => 'required|max:255',
-            'bday' => 'required|max:255',
-            'phone' => 'required|max:255',
-            'email' => 'required|max:255',
-            'bio' => 'required',
-            'image' => 'image|mimes:jpg,png,jpeg,svg|max:4092'
+            "title" => "required|max:255",
+            "name" => "required|max:255",
+            "bday" => "required|max:255",
+            "phone" => "required|max:255",
+            "email" => "required|max:255",
+            "bio" => "required",
+            "image" => "image|mimes:jpg,png,jpeg,svg|max:4092|dimensions:min_width=100,min_height=100"
         ]);
 
-        $input = $request->only("title", "name", 'bday', "phone", "email", "bio", "image");
+        $input = $request->only("title", "name", "bday", "phone", "email", "bio", "image");
 
-        if ($request->file('image')) {
-            if(File::exists(public_path('storage/images/about/'.$request->oldImg))){
-                File::delete(public_path('storage/images/about/'.$request->oldImg));
-            }
+        if ($request->file("image")) {
+            $old_path = public_path("storage/images/".$request->oldImg);
 
-            $path_dir = 'public/images/about';
-            $image = $request->file('image');
+            if (File::exists($old_path)) {
+                File::delete($old_path);
+            };
 
-            /** 
-             * Use getClientOriginalName() for original file name by user
-             * Use uniqid() for name with unique name
-             * Use data(xxx) for name with current date
-             * Use Str::random(value) for name with random string
-             * Use default laravel facade system
-            */
-            $name = $image->getClientOriginalName();
-            $fake_name = Str::random(8);
-            $path = $request->file('image')->storeAs($path_dir, $fake_name.' - '.$name);
+            $path_dir = "public/images";
+            $file = $request->file("image");
 
-            $input['image'] = $fake_name.' - '.$name;
+            $input["image"] = $this->save_file(
+                $path_dir,
+                $file->getClientOriginalName(),
+            );
+
+            $file->storeAs($path_dir, $input["image"]);
         }
 
-        $about = About::findOrFail($id);
-        $about->update($input);
-        $about->save();
+        About::findOrFail($id)->update($input)->save();
 
-        return redirect()->route('about.index')->with('status', 'Data berhasil diubah');
+        return redirect()->route("about.index")->with("status", "Data berhasil diubah");
     }
 
     /**
@@ -175,8 +152,10 @@ class AboutController extends Controller
     {
         $about = About::findOrFail($id);
         $about->delete();
-        File::delete(public_path('storage/images/about/'.$about->image));
 
-        return redirect()->route('about.index');
+        $path = public_path("storage/images/".$about->image);
+        File::delete($path);
+
+        return redirect()->back();
     }
 }

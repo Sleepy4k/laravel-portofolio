@@ -47,13 +47,13 @@
         <img class="img-preview img-fluid mb-3 col-sm-5" style="max-width: 15em; max-height: 15em;">
 
         <input class="@error('link') is-invalid @enderror form-control" type="file" id="image" onchange="previewImage()" name="image" required autofocus>
-
-        @error('image')
-            <span class="error-display">
-                {{ $message }}
-            </span>
-        @enderror
     </div>
+
+    @error('image')
+        <span class="error-display">
+            {{ $message }}
+        </span>
+    @enderror
 
     <div class="card-footer">
         <button type="submit" class="btn btn-primary btn-sm">

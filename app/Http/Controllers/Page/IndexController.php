@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Page;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
@@ -14,8 +13,10 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view('page/index', [
-            "title" => "Beranda"
-        ]);
+        $data = [
+            $title = "Beranda"
+        ];
+
+        return view("page/index", compact("data"));
     }
 }

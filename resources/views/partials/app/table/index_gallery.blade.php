@@ -19,7 +19,7 @@
         </tr>
     </thead>
     <tbody>
-        @if($galleries->count() <= 0)
+        @if (count($galleries) <= 0)
             <tr>
                 <td colspan=9 style="text-align: center;"> 
                     Belum Ada Data Yang Tersedia 
@@ -37,9 +37,9 @@
                     <td>
                         {{$gallery->desc}}
                     </td>
-                    @if(!empty(file_exists('storage/images/gallery/'.$gallery->image)))
+                    @if (!empty(file_exists('storage/images/'.$gallery->image)))
                         <td>
-                            <img height="35px" width="35px" src="{{ asset('storage/images/gallery/'.$gallery->image) }}"/>
+                            <img height="35px" width="35px" src="{{ asset('storage/images/'.$gallery->image) }}"/>
                         </td>
                     @else
                         <td>

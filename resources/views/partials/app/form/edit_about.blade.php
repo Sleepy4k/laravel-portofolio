@@ -85,9 +85,9 @@
 
         <input type="hidden" name="oldImg" id="oldImg" value="{{ $about->image }}">
 
-        @if($about->image)
-            @if(!empty(file_exists('storage/images/about/'.$about->image)))
-                <img src="{{ asset('storage/images/about/'.$about->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block" style="max-width: 15em; max-height: 15em;">
+        @if ($about->image)
+            @if (!empty(file_exists('storage/images/'.$about->image)))
+                <img src="{{ asset('storage/images/'.$about->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block" style="max-width: 15em; max-height: 15em;">
             @else
                 <img src="{{ asset('admin/images/bg-title-01.jpg') }}" class="img-preview img-fluid mb-3 col-sm-5 d-block" style="max-width: 15em; max-height: 15em;">
             @endif
@@ -96,13 +96,13 @@
         @endif
 
         <input class="@error('link') is-invalid @enderror form-control" type="file" id="image" onchange="previewImage()" name="image">
-
-        @if ($errors->has('image')) 
-            <span class="text-danger">
-                {{ $errors->first('image') }}
-            </span> 
-        @endif
     </div>
+
+    @error('image')
+        <span class="error-display">
+            {{ $message }}
+        </span>
+    @enderror
 
     <div class="card-footer">
         <button type="submit" class="btn btn-primary btn-sm">
