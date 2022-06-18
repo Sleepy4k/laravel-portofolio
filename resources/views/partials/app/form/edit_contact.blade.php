@@ -1,4 +1,4 @@
-<form action="{{route('contact.update', $contact->id)}}" method="post" class="">
+<form action="{{ route('contact.update', $contact->id) }}" method="post" class="">
     @csrf
     <div class="form-group">
         <label class=" form-control-label">
@@ -31,7 +31,7 @@
             Pesan
         </label>
         <textarea class="@error('pesan') is-invalid @enderror form-control" style="height: 100px" name="pesan" required autofocus>
-            {{old('nama', $contact->pesan)}}
+            {{ old('nama', $contact->pesan) }}
         </textarea>
     </div>
 

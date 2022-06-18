@@ -1,4 +1,4 @@
-<form action="{{route('gallery.update', $gallery->id)}}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('gallery.update', $gallery->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label class=" form-control-label">
@@ -46,9 +46,9 @@
 
         <input type="hidden" name="oldImg" id="oldImg" value="{{ $gallery->image }}">
 
-        @if($gallery->image)
-            @if(!empty(file_exists('storage/images/gallery/'.$gallery->image)))
-                <img src="{{ asset('storage/images/gallery/'.$gallery->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block" style="max-width: 15em; max-height: 15em;">
+        @if ($gallery->image)
+            @if (!empty(file_exists('storage/images/'.$gallery->image)))
+                <img src="{{ asset('storage/images/'.$gallery->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block" style="max-width: 15em; max-height: 15em;">
             @else
                 <img src="{{ asset('admin/images/bg-title-01.jpg') }}" class="img-preview img-fluid mb-3 col-sm-5 d-block" style="max-width: 15em; max-height: 15em;">
             @endif
@@ -57,13 +57,13 @@
         @endif
 
         <input class="@error('link') is-invalid @enderror form-control" type="file" id="image" onchange="previewImage()" name="image">
-
-        @if ($errors->has('image')) 
-            <span class="text-danger">
-                {{ $errors->first('image') }}
-            </span> 
-        @endif
     </div>
+
+    @error('image')
+        <span class="error-display">
+            {{ $message }}
+        </span>
+    @enderror
 
     <div class="card-footer">
         <button type="submit" class="btn btn-primary btn-sm">
