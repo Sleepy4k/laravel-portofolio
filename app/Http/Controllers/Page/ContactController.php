@@ -16,7 +16,8 @@ class ContactController extends Controller
     public function index()
     {
         $contacts = Contact::paginate(10);
-        return view('admin/contact/index', compact('contacts'));
+
+        return view("admin/contact/index", compact("contacts"));
     }
 
     /**
@@ -26,9 +27,11 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return view('page/contacts', [
-            "title" => "Contacts"
-        ]);
+        $data = [
+            $title = "Contacts"
+        ];
+
+        return view("page/contacts", compact("data"));
     }
 
     /**
@@ -40,28 +43,16 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|max:255',
-            'email' => 'required|max:255|email:dns',
-            'pesan' => 'required|max:255'
+            "nama" => "required|max:255",
+            "email" => "required|max:255|email:dns",
+            "pesan" => "required|max:255"
         ]);
 
         $input = $request->only("nama", "email", "pesan");
 
-        $contact = Contact::create($input);
-        $contact->save();
+        Contact::create($input)->save();
 
-        return redirect()->route('contact.create')->with('status', 'Data berhasil ditambahkan');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->route("contact.create")->with("status", "Data berhasil ditambahkan");
     }
 
     /**
@@ -73,7 +64,8 @@ class ContactController extends Controller
     public function edit($id)
     {
         $contact = Contact::findOrFail($id);
-        return view('admin/contact/edit', compact('contact'));
+
+        return view("admin/contact/edit", compact("contact"));
     }
 
     /**
@@ -86,17 +78,16 @@ class ContactController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required|max:255',
-            'email' => 'required|max:255|email:dns',
-            'pesan' => 'required|max:255'
+            "nama" => "required|max:255",
+            "email" => "required|max:255|email:dns",
+            "pesan" => "required|max:255"
         ]);
 
         $input = $request->only("nama", "email", "pesan");
 
-        $contact = Contact::findOrFail($id);
-        $contact->update($input);
-        $contact->save();
-        return redirect()->route('contact.index');
+        Contact::findOrFail($id)->update($input)->save();
+
+        return redirect()->route("contact.index")->with("status", "Data berhasil diubah");
     }
 
     /**
@@ -107,8 +98,8 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        $contact = Contact::findOrFail($id);
-        $contact->delete();
-        return redirect()->route('contact.index');
+        Contact::findOrFail($id)->delete();
+
+        return redirect()->back();
     }
 }
