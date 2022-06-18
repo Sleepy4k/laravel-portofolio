@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers\Page;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use App\Models\Gallery;
-use File;
+use Illuminate\Http\Request;
+use App\Http\Traits\FilesTrait;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class GalleryController extends Controller
 {
+    use FilesTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -18,10 +20,11 @@ class GalleryController extends Controller
     public function index()
     {
         $galleries = Gallery::paginate(10);
-        return view('page/gallery', [
-            "title" => "Gallery",
-            "galleries" => $galleries
-        ]);
+        $data = [
+            $title = "Gallery"
+        ];
+
+        return view("page/gallery", compact("galleries", "data"));
     }
     
     /**
@@ -32,7 +35,8 @@ class GalleryController extends Controller
     public function main()
     {
         $galleries = Gallery::paginate(10);
-        return view('admin/gallery/index', compact('galleries'));
+
+        return view("admin/gallery/index", compact("galleries"));
     }
 
     /**
@@ -42,7 +46,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('admin/gallery/add');
+        return view("admin/gallery/add");
     }
 
     /**
@@ -54,47 +58,29 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255|unique:galleries',
-            'desc' => 'required|max:255',
-            'link' => 'required|max:255',
-            'image' => 'required|image|mimes:jpg,png,jpeg,svg|max:4092',
+            "title" => "required|max:255|unique:galleries",
+            "desc" => "required|max:255",
+            "link" => "required|max:255",
+            "image" => "required|image|mimes:jpg,png,jpeg,svg|max:4092|dimensions:min_width=100,min_height=100",
         ]);
 
-        $input = $request->only("title", "desc", 'link', "image");
+        $input = $request->only("title", "desc", "link", "image");
 
-        if ($request->file('image')) {
-            $path_dir = 'public/images/gallery';
-            $image = $request->file('image');
+        if ($request->file("image")) {
+            $path_dir = "public/images";
+            $file = $request->file("image");
 
-            /** 
-             * Use getClientOriginalName() for original file name by user
-             * Use uniqid() for name with unique name
-             * Use data(xxx) for name with current date
-             * Use Str::random(value) for name with random string
-             * Use default laravel facade system
-            */
-            $name = $image->getClientOriginalName();
-            $fake_name = Str::random(8);
-            $path = $request->file('image')->storeAs($path_dir, $fake_name.' - '.$name);
-            
-            $input['image'] = $fake_name.' - '.$name;
+            $input["image"] = $this->save_file(
+                $path_dir,
+                $file->getClientOriginalName(),
+            );
+
+            $file->storeAs($path_dir, $input["image"]);
         }
+        
+        Gallery::create($input)->save();
 
-        $gallery = Gallery::create($input);
-        $gallery->save();
-
-        return redirect()->route('gallery.index')->with('status', 'Data berhasil ditambahkan');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->route("gallery.index")->with("status", "Data berhasil ditambahkan");
     }
 
     /**
@@ -106,7 +92,8 @@ class GalleryController extends Controller
     public function edit($id)
     {
         $gallery = Gallery::findOrFail($id);
-        return view('admin/gallery/edit', compact('gallery'));
+
+        return view("admin/gallery/edit", compact("gallery"));
     }
 
     /**
@@ -119,41 +106,35 @@ class GalleryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required|max:255',
-            'desc' => 'required|max:255',
-            'link' => 'required|max:255',
-            'image' => 'image|mimes:jpg,png,jpeg,svg|max:4092',
+            "title" => "required|max:255",
+            "desc" => "required|max:255",
+            "link" => "required|max:255",
+            "image" => "image|mimes:jpg,png,jpeg,svg|max:4092|dimensions:min_width=100,min_height=100",
         ]);
 
-        $input = $request->only("title", "desc", 'link', "image");
+        $input = $request->only("title", "desc", "link", "image");
 
-        if ($request->file('image')) {
-            if(File::exists(public_path('storage/images/gallery/'.$request->oldImg))){
-                File::delete(public_path('storage/images/gallery/'.$request->oldImg));
-            }
+        if ($request->file("image")) {
+            $old_path = public_path("storage/images/".$request->oldImg);
 
-            $path_dir = 'public/images/gallery';
-            $image = $request->file('image');
+            if (File::exists($old_path)) {
+                File::delete($old_path);
+            };
 
-            /** 
-             * Use getClientOriginalName() for original file name by user
-             * Use uniqid() for name with unique name
-             * Use data(xxx) for name with current date
-             * Use Str::random(value) for name with random string
-             * Use default laravel facade system
-            */
-            $name = $image->getClientOriginalName();
-            $fake_name = Str::random(8);
-            $path = $request->file('image')->storeAs($path_dir, $fake_name.' - '.$name);
+            $path_dir = "public/images";
+            $file = $request->file("image");
 
-            $input['image'] = $fake_name.' - '.$name;
+            $input["image"] = $this->save_file(
+                $path_dir,
+                $file->getClientOriginalName(),
+            );
+
+            $file->storeAs($path_dir, $input["image"]);
         }
 
-        $gallery = Gallery::findOrFail($id);
-        $gallery->update($input);
-        $gallery->save();
+       Gallery::findOrFail($id)->update($input)->save();
 
-        return redirect()->route('gallery.index')->with('status', 'Data berhasil ditambahkan');
+        return redirect()->route("gallery.index")->with("status", "Data berhasil ditambahkan");
     }
 
     /**
@@ -166,8 +147,10 @@ class GalleryController extends Controller
     {
         $gallery = Gallery::findOrFail($id);
         $gallery->delete();
-        File::delete(public_path('storage/images/gallery/'.$gallery->image));
 
-        return redirect()->route('gallery.index');
+        $path = public_path("storage/images/".$gallery->image);
+        File::delete($path);
+
+        return redirect()->back();
     }
 }
