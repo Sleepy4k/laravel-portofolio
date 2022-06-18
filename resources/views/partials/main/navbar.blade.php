@@ -6,22 +6,22 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link {{ ( $title === 'Home') ? 'active' : '' }}" aria-current="page" href="{{ route('index.home') }}">
+					<a class="nav-link @if (Request::segment(2) == 'home') active @endif" aria-current="page" href="{{ route('index.home') }}">
 						Home
 					</a>
 				</li>   
 				<li class="nav-item">
-					<a class="nav-link {{ ( $title === 'About') ? 'active' : '' }}" href="{{ route('index.about') }}">
+					<a class="nav-link @if (Request::segment(2) == 'about') active @endif" href="{{ route('index.about') }}">
 						About
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link {{ ( $title === 'Gallery') ? 'active' : '' }}" href="{{ route('index.gallery') }}">
+					<a class="nav-link @if (Request::segment(2) == 'gallery') active @endif" href="{{ route('index.gallery') }}">
 						Gallery
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link {{ ( $title === 'Contacts') ? 'active' : '' }}" href="{{ route('contact.create') }}">
+					<a class="nav-link @if (Request::segment(2) == 'create') active @endif" href="{{ route('contact.create') }}">
 						Contacts
 					</a>
 				</li>
