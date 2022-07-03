@@ -132,7 +132,9 @@ class GalleryController extends Controller
             $file->storeAs($path_dir, $input["image"]);
         }
 
-       Gallery::findOrFail($id)->update($input)->save();
+       	$Gallery = Gallery::findOrFail($id);
+	$Gallery->update($input);
+	$Gallery->save();
 
         return redirect()->route("gallery.index")->with("status", "Data berhasil ditambahkan");
     }

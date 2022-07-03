@@ -137,7 +137,9 @@ class AboutController extends Controller
             $file->storeAs($path_dir, $input["image"]);
         }
 
-        About::findOrFail($id)->update($input)->save();
+        $About = About::findOrFail($id);
+	$About->update($input);
+	$About->save();
 
         return redirect()->route("about.index")->with("status", "Data berhasil diubah");
     }

@@ -34,11 +34,6 @@
 							Login
 						</a>
 					</li>
-					<li class="nav-item">
-						<a href="{{ route('register') }}" class="nav-link">
-							Register
-						</a>
-					</li>
 				</ul>
 			@else
 				<ul class="navbar-nav ms-auto">

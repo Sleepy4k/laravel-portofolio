@@ -3,10 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Page\HomeController;
-use App\Http\Controllers\Page\AboutController;
 use App\Http\Controllers\Page\IndexController;
-use App\Http\Controllers\Page\ContactController;
-use App\Http\Controllers\Page\GalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,47 +16,22 @@ use App\Http\Controllers\Page\GalleryController;
 |
 */
 
-route::get('/', [IndexController::class, 'index'])->name('index');
+route::get('/',
+    [IndexController::class, 'index']
+)->name('index');
 
-Route::group(['prefix' => 'index'], function () {
-    route::get('home', [IndexController::class, 'index'])->name('index.home');
-    route::get('about', [AboutController::class, 'index'])->name('index.about');
-    route::get('gallery', [GalleryController::class, 'index'])->name('index.gallery');
-    route::get('create', [ContactController::class, 'create'])->name('contact.create');
-    
-    route::post('store', [ContactController::class, 'store'])->name('contact.store');
-});
+require __DIR__.'/index/web.php';
 
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
-    route::get('home', [HomeController::class, 'index'])->name('home');
+    route::get('home',
+        [HomeController::class, 'index']
+    )->name('home');
 });
 
-Route::group(['prefix' => 'gallery', 'middleware' => ['auth']], function () {
-    route::get('index', [GalleryController::class, 'main'])->name('gallery.index');
-    route::get('create', [GalleryController::class, 'create'])->name('gallery.create');
-    route::get('{id}/edit', [GalleryController::class, 'edit'])->name('gallery.edit');
-    route::get('{id}/destroy', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+require __DIR__.'/gallery/web.php';
 
-    route::post('store', [GalleryController::class, 'store'])->name('gallery.store');
-    route::post('{id}/update', [GalleryController::class, 'update'])->name('gallery.update');
-});
+require __DIR__.'/about/web.php';
 
-Route::group(['prefix' => 'about', 'middleware' => ['auth']], function () {
-    route::get('index', [AboutController::class, 'main'])->name('about.index');
-    route::get('create', [AboutController::class, 'create'])->name('about.create');
-    route::get('{id}/edit', [AboutController::class, 'edit'])->name('about.edit');
-    route::get('{id}/destroy', [AboutController::class, 'destroy'])->name('about.destroy');
-
-    route::post('store', [AboutController::class, 'store'])->name('about.store');
-    route::post('{id}/update', [AboutController::class, 'update'])->name('about.update');
-});
-
-Route::group(['prefix' => 'contact', 'middleware' => ['auth']], function () {
-    route::get('index', [ContactController::class, 'index'])->name('contact.index');
-    route::get('{id}/edit', [ContactController::class, 'edit'])->name('contact.edit');
-    route::get('{id}/destroy', [ContactController::class, 'destroy'])->name('contact.destroy');
-
-    route::post('{id}/update', [ContactController::class, 'update'])->name('contact.update');
-});
+require __DIR__.'/contact/web.php';
