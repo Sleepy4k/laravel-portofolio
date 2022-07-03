@@ -85,7 +85,9 @@ class ContactController extends Controller
 
         $input = $request->only("nama", "email", "pesan");
 
-        Contact::findOrFail($id)->update($input)->save();
+        $Contact = Contact::findOrFail($id);
+	$Contact->update($input);
+	$Contact->save();
 
         return redirect()->route("contact.index")->with("status", "Data berhasil diubah");
     }
