@@ -11,10 +11,10 @@
 				</div>
 			@else
 				@foreach ($abouts as $about)
-					@if(!empty(file_exists('storage/images/about/'.$about->image)))
+					@if(!empty(file_exists('storage/images/'.$about->image)))
 						<div class="col-lg-4">
 							<div class="position-relative">
-								<img src="{{ asset('storage/images/about/'.$about->image) }}" alt="{{ $about->name }}" class="radius-image img-fluid">
+								<img src="{{ asset('storage/images/'.$about->image) }}" alt="{{ $about->name }}" class="radius-image img-fluid">
 							</div>
 						</div>
 						<div class="col-lg-8 ps-lg-5 mt-lg-0 mt-5">

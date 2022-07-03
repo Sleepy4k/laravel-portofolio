@@ -19,39 +19,37 @@
         </tr>
     </thead>
     <tbody>
-        @if (count($contacts) <= 0)
+        @forelse ($contacts as $index => $contact)
+            <tr>
+                <td>
+                    {{ $index + 1 }}
+                </td>
+                <td>
+                    {{ $contact->nama }}
+                </td>
+                <td>
+                    {{ $contact->email }}
+                </td>
+                <td>
+                    {{ $contact->pesan }}
+                </td>
+                <td>
+                    <a href="{{ route('contact.edit', $contact->id) }}">
+                        <i class="fas fa-edit"></i>
+                    </a> 
+                    | 
+                    <a href="{{ route('contact.destroy', $contact->id) }}" style="color:red" class="button delete-confirm">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        @empty
             <tr>
                 <td colspan=9 style="text-align: center;"> 
                     Belum Ada Data Yang Tersedia 
                 </td>
             </tr>
-        @else
-            @foreach ($contacts as $index => $contact)
-                <tr>
-                    <td>
-                        {{$index + 1}}
-                    </td>
-                    <td>
-                        {{$contact->nama}}
-                    </td>
-                    <td>
-                        {{$contact->email}}
-                    </td>
-                    <td>
-                        {{$contact->pesan}}
-                    </td>
-                    <td>
-                        <a href="{{route('contact.edit', $contact->id)}}">
-                            <i class="fas fa-edit"></i>
-                        </a> 
-                        | 
-                        <a href="{{route('contact.destroy', $contact->id)}}" style="color:red" class="button delete-confirm">
-                            <i class="fas fa-trash"></i>
-                        </a>
-                    </td>
-                </tr> 
-            @endforeach
-        @endif
+        @endforelse
     </tbody>
 </table>
 
