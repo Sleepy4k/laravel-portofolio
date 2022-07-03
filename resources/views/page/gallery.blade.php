@@ -16,10 +16,10 @@
 					</div>
 				@else
 					@foreach ($galleries as $gallery)
-						@if(!empty(file_exists('storage/images/gallery/'.$gallery->image)))
+						@if(!empty(file_exists('storage/images/'.$gallery->image)))
 							<div class="col-lg-4 col-md-6 item mt-4 pt-lg-2">
-								<a href="{{ $gallery->link }}" src="{{ asset('storage/images/gallery/'.$gallery->image) }}" data-lightbox="example-set" data-title="{{ $gallery->title }}" class="zoom d-block">
-									<img class="card-img-bottom d-block" style="max-width: 15em; max-height: 15em;" src="{{ asset('storage/images/gallery/'.$gallery->image) }}" alt="none">
+								<a href="{{ $gallery->link }}" src="{{ asset('storage/images/'.$gallery->image) }}" target="_blank" data-lightbox="example-set" data-title="{{ $gallery->title }}" class="zoom d-block">
+									<img class="card-img-bottom d-block" style="max-width: 15em; max-height: 15em;" src="{{ asset('storage/images/'.$gallery->image) }}" alt="none">
 									<span class="overlay__hover"></span>
 									<span class="hover-content">
 										<span class="title">
@@ -33,7 +33,7 @@
 							</div>
 						@else
 							<div class="col-lg-4 col-md-6 item mt-4 pt-lg-2">
-								<a href="{{ $gallery->link }}" src="{{ asset('admin/images/bg-title-01.jpg') }}" data-lightbox="example-set" data-title="{{ $gallery->title }}" class="zoom d-block">
+								<a href="{{ $gallery->link }}" src="{{ asset('admin/images/bg-title-01.jpg') }}" target="_blank" data-lightbox="example-set" data-title="{{ $gallery->title }}" class="zoom d-block">
 									<img class="card-img-bottom d-block" src="{{ asset('admin/images/bg-title-01.jpg') }}" alt="none">
 									<span class="overlay__hover"></span>
 									<span class="hover-content">

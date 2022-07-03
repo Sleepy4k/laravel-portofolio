@@ -13,7 +13,7 @@
                                 Data About
                             </h2>
                             <a href="{{ route('about.create') }}" class="ms-auto">
-                                @if($abouts->count() < 1)
+                                @if (count($abouts) < 1)
                                     <button type="button" class="btn btn-success btn-sm">
                                         <i class="fas fa-plus"></i>
                                         Tambah
