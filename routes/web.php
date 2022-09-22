@@ -1,9 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Page\HomeController;
-use App\Http\Controllers\Page\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,22 +13,6 @@ use App\Http\Controllers\Page\IndexController;
 |
 */
 
-route::get('/',
-    [IndexController::class, 'index']
-)->name('index');
-
-require __DIR__.'/index/web.php';
-
-Auth::routes();
-
-Route::group(['middleware' => ['auth']], function () {
-    route::get('home',
-        [HomeController::class, 'index']
-    )->name('home');
-});
-
-require __DIR__.'/gallery/web.php';
-
-require __DIR__.'/about/web.php';
-
-require __DIR__.'/contact/web.php';
+Route::get('', function () {
+    return view('pages.landing');
+})->name('landing');
