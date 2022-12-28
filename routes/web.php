@@ -4,6 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TranslateController;
+use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\AuthenticatedSessionController;
 
 /*
@@ -27,7 +28,8 @@ use App\Http\Controllers\AuthenticatedSessionController;
 | Remember not to list anything of importance, use authenticate route instead.
 */
 
-Route::get('/', fn () => Inertia::render('Portofolio'))->name('landing.index');
+Route::get('/', [PortofolioController::class, 'index'])->name('landing.index');
+Route::post('contact', [PortofolioController::class, 'store'])->name('landing.store');
 
 /*
 |--------------------------------------------------------------------------
