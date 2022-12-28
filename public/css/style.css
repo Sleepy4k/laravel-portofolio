@@ -1,0 +1,28 @@
+.jumbotron {
+    padding-top: 6rem;
+    background-color: #e2edff;
+}
+
+.projects {
+    background-color: #3c82f3a9;
+}
+
+.copyright {
+    color: white;
+    text-align: center;
+    background-color: #0d6efd;
+}
+
+.copyright-link {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navlink-authenticated {
+    text-decoration: none;
+}
+
+section {
+    padding-top: 5rem;
+}

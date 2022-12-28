@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Page\HomeController;
-use App\Http\Controllers\Page\IndexController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TranslateController;
+use App\Http\Controllers\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,22 +17,52 @@ use App\Http\Controllers\Page\IndexController;
 |
 */
 
-route::get('/',
-    [IndexController::class, 'index']
-)->name('index');
+/*
+|--------------------------------------------------------------------------
+| Public Route
+|--------------------------------------------------------------------------
+|
+| You can list public API for any user in here. These routes are not guarded
+| by any authentication system. In other words, any user can access it directly.
+| Remember not to list anything of importance, use authenticate route instead.
+*/
 
-require __DIR__.'/index/web.php';
+Route::get('/', fn () => Inertia::render('Portofolio'))->name('landing.index');
 
-Auth::routes();
+/*
+|--------------------------------------------------------------------------
+| Unauthenticated Route
+|--------------------------------------------------------------------------
+|
+| You can list public API for any user in here. These routes are meant
+| to be used for guests and are not guarded by any authentication system.
+| Remember not to list anything of importance, use authenticate route instead.
+*/
 
-Route::group(['middleware' => ['auth']], function () {
-    route::get('home',
-        [HomeController::class, 'index']
-    )->name('home');
+Route::middleware('guest')->group(function () {
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login.index');
+    Route::post('login', [AuthenticatedSessionController::class, 'store'])->name('login.store');
 });
 
-require __DIR__.'/gallery/web.php';
+/*
+|--------------------------------------------------------------------------
+| Authenticated Route
+|--------------------------------------------------------------------------
+|
+| In here you can list any route for authenticated user. These routes
+| are meant to be used privately since the access is exclusive to authenticated
+| user who had obtained their sanctum token from login API!
+*/
 
-require __DIR__.'/about/web.php';
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->middleware('verified')->name('dashboard.index');
 
-require __DIR__.'/contact/web.php';
+    Route::resource('translate', TranslateController::class, ['except' => ['show']]);
+
+    Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
+
+    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+});

@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\About;
+use Illuminate\Database\Seeder;
 
 class AboutSeeder extends Seeder
 {
@@ -14,19 +14,10 @@ class AboutSeeder extends Seeder
      */
     public function run()
     {
-        $now = date("y/m/d H:i:s");
-        $data = [
-            'title' => 'Tentang Saya',
-            'name' => 'Apri Pandu Wicaksono',
-            'bday' => '17',
-            'phone' => '+6281318977078',
-            'email' => 'Pandu300478@gmail.com',
-            'bio' => 'Saya adalah developer website, yang memahami bahasa php, vue, js, lua',
-            'image' => '',
-            'created_at' => $now,
-            'updated_at' => $now
-        ];
+        if (About::count() == 0) {
+            $facilities = About::factory(10)->make();
 
-        About::insert($data);
+            About::insert($facilities->toArray());
+        }
     }
 }

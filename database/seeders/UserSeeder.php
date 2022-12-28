@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
 {
@@ -14,15 +14,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $now = date("y/m/d H:i:s");
-        $data = [
-            'name' => 'admin',
-            'password' => bcrypt('admin123'),
-            'email' => 'admin@admin.com',
-            'created_at' => $now,
-            'updated_at' => $now
-        ];
-
-        User::insert($data);
+        if (User::count() == 0) {
+            User::factory(1)->create();
+        }
     }
 }
