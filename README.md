@@ -1,33 +1,4 @@
-<<<<<<< Updated upstream
-<h1 align='center'>
-    Laravel Portofolio
-</h1>
-
-<p align='center'>
-    <b>
-        <a href='https://discord.gg/7rFQQ6yeW7'>
-            Discord
-        </a>
-    </b>
-</p>
-
-**IMPORTANT** : I am not creator for this template. **HOWEVER, THIS SHOULD ONLY BE USED IF YOU ARE EXPERIENCED AND KNOW WHAT YOU ARE DOING**.
-
-### Features
-
-    Form Validation
-    Admin Dashboard
-    Contact Us
-    Etc
-
-<hr>
-
-### Features Image
-
-##### Home Index (guest)
-=======
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
->>>>>>> Stashed changes
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
