@@ -7,11 +7,11 @@ import Contact from "@/Components/Portofolio/Contact";
 
 export default function Portofolio(props) {
     return (
-        <PortofolioLayout owner={props.owner}>
-            {/* <Head title={props.owner.name} /> */}
-            <Jumbotron owner={props.owner} />
-            <About owner={props.owner} />
-            <Projects owner={props.owner} />
+        <PortofolioLayout owner={props.about} application={props.application}>
+            <Head title={props.about.name} />
+            <Jumbotron owner={props.about} />
+            <About owner={props.about} />
+            <Projects projects={props.projects} />
             <Contact />
         </PortofolioLayout>
     );

@@ -1,14 +1,25 @@
 export default function Jumbotron({ owner }) {
     return (
         <section className="jumbotron text-center">
-            <img
-                src="image/jumbotron/ayang.jpg"
-                alt="Benjamin4k"
-                width="200"
-                className="rounded-circle inline-block img-thumbnail shadow-sm"
-            />
-            <h1 className="display-4">Apri Pandu Wicaksono</h1>
-            <p className="lead">Programmer | Bucin</p>
+            {owner.image === null ? (
+                <img
+                    src="image/jumbotron/ayang.jpg"
+                    alt={owner.name}
+                    width="200"
+                    className="rounded-circle inline-block img-thumbnail shadow-sm"
+                />
+            ) : (
+                <img
+                    src={`storage/image/${owner.image}`}
+                    alt={owner.name}
+                    width="200"
+                    className="rounded-circle inline-block img-thumbnail shadow-sm"
+                />
+            )}
+            <h1 className="display-4">{owner.name}</h1>
+            <p className="lead">
+                {owner.hobby} | {owner.interest}
+            </p>
 
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                 <path

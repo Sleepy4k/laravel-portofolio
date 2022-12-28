@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-export default function Projects({ owner }) {
+export default function Projects({ projects }) {
     return (
         <section id="projects" className="projects">
             <Container>
@@ -13,91 +13,39 @@ export default function Projects({ owner }) {
                     </Col>
                 </Row>
                 <Row className="justify-content-evenly">
-                    <Col className="col-md-4 mb-3">
-                        <Card>
-                            <Card.Img
-                                variant="top"
-                                src="image/projects/project-1.jpg"
-                                alt="Project 1"
-                            />
-                            <Card.Body>
-                                <Card.Text>
-                                    This is a longer card with supporting text
-                                    below as a natural lead-in to additional
-                                    content. This content is a little bit
-                                    longer.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col className="col-md-4 mb-3">
-                        <Card>
-                            <Card.Img
-                                variant="top"
-                                src="image/projects/project-2.jpg"
-                                alt="Project 2"
-                            />
-                            <Card.Body>
-                                <Card.Text>
-                                    This is a longer card with supporting text
-                                    below as a natural lead-in to additional
-                                    content. This content is a little bit
-                                    longer.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col className="col-md-4 mb-3">
-                        <Card>
-                            <Card.Img
-                                variant="top"
-                                src="image/projects/project-3.jpg"
-                                alt="Project 3"
-                            />
-                            <Card.Body>
-                                <Card.Text>
-                                    This is a longer card with supporting text
-                                    below as a natural lead-in to additional
-                                    content. This content is a little bit
-                                    longer.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col className="col-md-4 mb-3">
-                        <Card>
-                            <Card.Img
-                                variant="top"
-                                src="image/projects/project-4.jpg"
-                                alt="Project 4"
-                            />
-                            <Card.Body>
-                                <Card.Text>
-                                    This is a longer card with supporting text
-                                    below as a natural lead-in to additional
-                                    content. This content is a little bit
-                                    longer.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col className="col-md-4 mb-3">
-                        <Card>
-                            <Card.Img
-                                variant="top"
-                                src="image/projects/project-5.jpg"
-                                alt="Project 5"
-                            />
-                            <Card.Body>
-                                <Card.Text>
-                                    This is a longer card with supporting text
-                                    below as a natural lead-in to additional
-                                    content. This content is a little bit
-                                    longer.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
+                    {projects && projects.length > 0 ? (
+                        projects.map((project, index) => {
+                            return (
+                                <Col key={index} className="col-md-4 mb-3">
+                                    <Card>
+                                        {project.image === null ? (
+                                            <Card.Img
+                                                variant="top"
+                                                src="image/projects/project-1.jpg"
+                                                alt="Project 1"
+                                            />
+                                        ) : (
+                                            <Card.Img
+                                                variant="top"
+                                                src={`storage/image/${project.image}`}
+                                                alt="Project 1"
+                                            />
+                                        )}
+                                        <Card.Body>
+                                            <Card.Title>
+                                                {project.title}
+                                            </Card.Title>
+                                            <Card.Text>
+                                                {project.description}
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            );
+                        })
+                    ) : (
+                        <div></div>
+                    )}
                 </Row>
             </Container>
 

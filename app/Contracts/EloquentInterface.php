@@ -19,7 +19,7 @@ interface EloquentInterface
      * @return Collection
      */
     public function all(array $columns = ['*'], array $relations = [], array $wheres = [], string $orderBy = 'created_at', bool $latest = true, array $roles = []): Collection;
-    
+
     /**
      * Get all in pagination models.
      *
@@ -40,7 +40,7 @@ interface EloquentInterface
      * @return Collection
      */
     public function allTrashed(): Collection;
-    
+
     /**
      * Find model by id.
      *
@@ -51,7 +51,7 @@ interface EloquentInterface
      * @return Model
      */
     public function findById(int $modelId, array $columns = ['*'], array $relations = [], array $appends = []): ?Model;
-        
+
     /**
      * Find model by custom id.
      *
@@ -70,7 +70,7 @@ interface EloquentInterface
      * @return Model
      */
     public function findTrashedById(int $modelId): ?Model;
-    
+
     /**
      * Find trashed model by custom id.
      *
@@ -86,7 +86,7 @@ interface EloquentInterface
      * @return Model
      */
     public function findOnlyTrashedById(int $modelId): ?Model;
-    
+
     /**
      * Find only trashed model by custom id.
      *
@@ -102,7 +102,7 @@ interface EloquentInterface
      * @return Model
      */
     public function create(array $payload): ?Model;
-    
+
     /**
      * Update existing model.
      *
@@ -111,7 +111,7 @@ interface EloquentInterface
      * @return Model
      */
     public function update(int $modelId, array $payload): bool;
-    
+
     /**
      * Delete model by id.
      *
@@ -119,7 +119,7 @@ interface EloquentInterface
      * @return Model
      */
     public function deleteById(int $modelId): bool;
-    
+
     /**
      * Restore model by id.
      *
@@ -127,7 +127,7 @@ interface EloquentInterface
      * @return Model
      */
     public function restoreById(int $modelId): bool;
-    
+
     /**
      * Permanently delete model by id.
      *

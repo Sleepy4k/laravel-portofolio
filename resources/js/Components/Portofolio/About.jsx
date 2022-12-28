@@ -13,19 +13,10 @@ export default function About({ owner }) {
                 </Row>
                 <Row className="justify-content-center fs-5 text-center">
                     <Col className="col-md-4">
-                        <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing
-                            elit. Veritatis harum quod esse eligendi eaque
-                            dolorum voluptas, facilis nemo ad laboriosam?
-                        </p>
+                        <p>{owner.description}</p>
                     </Col>
                     <Col className="col-md-4">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Quasi quae libero alias officiis autem
-                            possimus, aliquam, repudiandae amet necessitatibus
-                            labore aut. Eveniet rerum magni quidem.
-                        </p>
+                        <p>{owner.mission}</p>
                     </Col>
                 </Row>
             </Container>

@@ -26,8 +26,7 @@ class ProjectFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'description' => fake()->text(),
-            'link' => fake()->url()
+            'description' => fake()->text()
         ];
     }
 }
