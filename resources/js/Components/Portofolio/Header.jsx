@@ -3,12 +3,12 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "@inertiajs/inertia-react";
 import Container from "react-bootstrap/Container";
 
-export default function Header({ owner }) {
+export default function Header({ application }) {
     return (
         <Navbar bg="primary" variant="dark" className="shadow-sm fixed-top">
             <Container>
                 <Link href={route("dashboard.index")} className="navbar-brand">
-                    Portofolio
+                    {application.app_name}
                 </Link>
                 <Nav className="ms-auto">
                     <Nav.Link href="#home">Home</Nav.Link>

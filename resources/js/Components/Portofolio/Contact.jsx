@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { Inertia } from "@inertiajs/inertia";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -5,6 +7,29 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 export default function Contact() {
+    const [values, setValues] = useState({
+        name: "",
+        email: "",
+        message: "",
+    });
+
+    const handleChanges = (e) => {
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        alert(
+            "Thank you for your message. I will read it as soon as possible."
+        );
+
+        Inertia.post("/contact", values);
+    };
+
     return (
         <section id="contact">
             <Container>
@@ -20,14 +45,18 @@ export default function Contact() {
                                 <Form.Label>Nama Lengkap</Form.Label>
                                 <Form.Control
                                     type="text"
+                                    name="name"
                                     placeholder="Nama kamu"
+                                    onChange={handleChanges}
                                 />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="email">
                                 <Form.Label>Email</Form.Label>
                                 <Form.Control
                                     type="email"
+                                    name="email"
                                     placeholder="Email kamu"
+                                    onChange={handleChanges}
                                 />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="message">
@@ -35,10 +64,16 @@ export default function Contact() {
                                 <Form.Control
                                     as="textarea"
                                     rows={3}
+                                    name="message"
                                     placeholder="Tulisakan pesan kamu disini"
+                                    onChange={handleChanges}
                                 />
                             </Form.Group>
-                            <Button variant="primary" type="submit">
+                            <Button
+                                variant="primary"
+                                type="submit"
+                                onClick={handleSubmit}
+                            >
                                 Kirim
                             </Button>
                         </Form>
