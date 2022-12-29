@@ -44,6 +44,24 @@ class TranslateController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  string  $trans
+     * @return \Illuminate\Http\Response
+     */
+    public function show($trans)
+    {
+        if (request()->wantsJson() || request()->ajax()) {
+            return response()->json([
+                'message' => 'Request berhasil diterima',
+                'data' => trans($trans)
+            ]);
+        }
+
+        return back();
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Services\TranslateService  $service
