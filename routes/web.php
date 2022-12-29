@@ -2,6 +2,7 @@
 
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TranslateController;
 use App\Http\Controllers\PortofolioController;
@@ -62,6 +63,7 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('Dashboard');
     })->middleware('verified')->name('dashboard.index');
 
+    Route::resource('contact', ContactController::class, ['only' => ['index', 'show']]);
     Route::resource('translate', TranslateController::class, ['except' => ['show']]);
 
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');

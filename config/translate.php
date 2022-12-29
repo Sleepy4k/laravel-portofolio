@@ -460,6 +460,14 @@ return [
         ],
         [
             'group' => 'form',
+            'key' => 'contact.back',
+            'text' => [
+                'id' => 'Kembali',
+                'en' => 'Back'
+            ]
+        ],
+        [
+            'group' => 'form',
             'key' => 'contact.submit',
             'text' => [
                 'id' => 'Kirim',
@@ -589,6 +597,62 @@ return [
         [
             'group' => 'table',
             'key' => 'translate.empty',
+            'text' => [
+                'id' => 'Belum ada data yang tersedia',
+                'en' => 'No data available yet'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'contact.index',
+            'text' => [
+                'id' => 'Indeks',
+                'en' => 'Index'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'contact.name',
+            'text' => [
+                'id' => 'Nama',
+                'en' => 'Name'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'contact.email',
+            'text' => [
+                'id' => 'Surel',
+                'en' => 'Email'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'contact.message',
+            'text' => [
+                'id' => 'Pesan',
+                'en' => 'Message'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'contact.action',
+            'text' => [
+                'id' => 'Tindakan',
+                'en' => 'Action'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'contact.show',
+            'text' => [
+                'id' => 'Detail',
+                'en' => 'Detail'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'contact.empty',
             'text' => [
                 'id' => 'Belum ada data yang tersedia',
                 'en' => 'No data available yet'
