@@ -30,6 +30,7 @@ use App\Http\Controllers\AuthenticatedSessionController;
 
 Route::get('/', [PortofolioController::class, 'index'])->name('landing.index');
 Route::post('contact', [PortofolioController::class, 'store'])->name('landing.store');
+Route::get('translate/get/{trans}', [TranslateController::class, 'show'])->name('translate.show');
 
 /*
 |--------------------------------------------------------------------------
