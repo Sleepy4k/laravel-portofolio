@@ -1,7 +1,11 @@
+// Import Core Libraries
 import { useState } from "react";
 import { Inertia } from "@inertiajs/inertia";
-import Button from "react-bootstrap/Button";
+import { Link } from "@inertiajs/inertia-react";
+
+// Import Bootstrap Components
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 export default function CreateForm() {
     const [values, setValues] = useState({
@@ -27,50 +31,50 @@ export default function CreateForm() {
     return (
         <Form>
             <Form.Group className="mb-3" controlId="group">
-                <Form.Label>Group</Form.Label>
+                <Form.Label>{transData("form.translate.group")}</Form.Label>
                 <Form.Control
                     type="text"
                     name="group"
-                    placeholder="Translate Group"
+                    placeholder={transData("form.translate.placeholder.group")}
                     onChange={handleChanges}
                 />
             </Form.Group>
             <Form.Group className="mb-3" controlId="key">
-                <Form.Label>Key</Form.Label>
+                <Form.Label>{transData("form.translate.key")}</Form.Label>
                 <Form.Control
                     type="text"
                     name="key"
-                    placeholder="Translate Key"
+                    placeholder={transData("form.translate.placeholder.key")}
                     onChange={handleChanges}
                 />
             </Form.Group>
             <Form.Group className="mb-3" controlId="id">
-                <Form.Label>Lang ID</Form.Label>
+                <Form.Label>{transData("form.translate.id")}</Form.Label>
                 <Form.Control
                     type="text"
                     name="id"
-                    placeholder="Translate in Indonesia"
+                    placeholder={transData("form.translate.placeholder.id")}
                     onChange={handleChanges}
                 />
             </Form.Group>
             <Form.Group className="mb-3" controlId="en">
-                <Form.Label>Lang EN</Form.Label>
+                <Form.Label>{transData("form.translate.en")}</Form.Label>
                 <Form.Control
                     type="text"
                     name="en"
-                    placeholder="Translate in English"
+                    placeholder={transData("form.translate.placeholder.en")}
                     onChange={handleChanges}
                 />
             </Form.Group>
-            <Button
+            <Link
                 href={route("translate.index")}
-                variant="success"
-                className="me-2"
+                as="button"
+                className="btn btn-success me-2"
             >
-                Back
-            </Button>
+                {transData("form.translate.back")}
+            </Link>
             <Button variant="primary" type="submit" onClick={handleSubmit}>
-                Submit
+                {transData("form.translate.submit")}
             </Button>
         </Form>
     );

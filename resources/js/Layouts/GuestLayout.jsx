@@ -1,5 +1,8 @@
-import ApplicationLogo from '@/Components/ApplicationLogo';
-import { Link } from '@inertiajs/inertia-react';
+// Import Core Libraries
+import { Link } from "@inertiajs/inertia-react";
+
+// Import Components
+import ApplicationLogo from "@/Components/ApplicationLogo";
 
 export default function Guest({ children }) {
     return (

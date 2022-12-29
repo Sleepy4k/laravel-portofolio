@@ -1,5 +1,8 @@
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+// Import Core Libraries
 import { Head } from "@inertiajs/inertia-react";
+
+// Import Components
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 export default function Dashboard(props) {
     return (
@@ -10,7 +13,8 @@ export default function Dashboard(props) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900 dark:text-gray-100 text-center">
-                            Welcome back, {props.auth.user.name}!
+                            {transData("page.dashboard.welcome")},{" "}
+                            {props.auth.user.name}!
                         </div>
                     </div>
                 </div>

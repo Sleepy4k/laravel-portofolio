@@ -1,9 +1,12 @@
-import PortofolioLayout from "@/Layouts/PortofolioLayout";
+// Import Core Libraries
 import { Head } from "@inertiajs/inertia-react";
-import Jumbotron from "@/Components/Portofolio/Jumbotron";
+
+// Import Components
 import About from "@/Components/Portofolio/About";
-import Projects from "@/Components/Portofolio/Projects";
 import Contact from "@/Components/Portofolio/Contact";
+import Projects from "@/Components/Portofolio/Projects";
+import PortofolioLayout from "@/Layouts/PortofolioLayout";
+import Jumbotron from "@/Components/Portofolio/Jumbotron";
 
 export default function Portofolio(props) {
     return (

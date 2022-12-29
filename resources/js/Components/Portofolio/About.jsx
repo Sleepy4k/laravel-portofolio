@@ -1,6 +1,7 @@
-import Container from "react-bootstrap/Container";
+// Import Bootstrap Components
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 
 export default function About({ owner }) {
     return (
@@ -8,7 +9,7 @@ export default function About({ owner }) {
             <Container>
                 <Row className="text-center mb-3">
                     <Col>
-                        <h2>About Me</h2>
+                        <h2>{transData("page.about.title")}</h2>
                     </Col>
                 </Row>
                 <Row className="justify-content-center fs-5 text-center">

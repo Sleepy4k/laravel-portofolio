@@ -1,10 +1,13 @@
+// Import Core Libraries
 import { useState } from "react";
 import { Inertia } from "@inertiajs/inertia";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+
+// Import Bootstrap Components
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
 
 export default function Contact() {
     const [values, setValues] = useState({
@@ -35,37 +38,49 @@ export default function Contact() {
             <Container>
                 <Row className="text-center mb-3">
                     <Col>
-                        <h2>Contact Me</h2>
+                        <h2>{transData("page.contact.title")}</h2>
                     </Col>
                 </Row>
                 <Row className="justify-content-center">
                     <Col className="col-md-6">
                         <Form>
                             <Form.Group className="mb-3" controlId="name">
-                                <Form.Label>Nama Lengkap</Form.Label>
+                                <Form.Label>
+                                    {transData("form.contact.name")}
+                                </Form.Label>
                                 <Form.Control
                                     type="text"
                                     name="name"
-                                    placeholder="Nama kamu"
+                                    placeholder={transData(
+                                        "form.contact.placeholder.name"
+                                    )}
                                     onChange={handleChanges}
                                 />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="email">
-                                <Form.Label>Email</Form.Label>
+                                <Form.Label>
+                                    {transData("form.contact.email")}
+                                </Form.Label>
                                 <Form.Control
                                     type="email"
                                     name="email"
-                                    placeholder="Email kamu"
+                                    placeholder={transData(
+                                        "form.contact.placeholder.email"
+                                    )}
                                     onChange={handleChanges}
                                 />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="message">
-                                <Form.Label>Pesan</Form.Label>
+                                <Form.Label>
+                                    {transData("form.contact.message")}
+                                </Form.Label>
                                 <Form.Control
                                     as="textarea"
                                     rows={3}
                                     name="message"
-                                    placeholder="Tulisakan pesan kamu disini"
+                                    placeholder={transData(
+                                        "form.contact.placeholder.message"
+                                    )}
                                     onChange={handleChanges}
                                 />
                             </Form.Group>
@@ -74,7 +89,7 @@ export default function Contact() {
                                 type="submit"
                                 onClick={handleSubmit}
                             >
-                                Kirim
+                                {transData("form.contact.submit")}
                             </Button>
                         </Form>
                     </Col>

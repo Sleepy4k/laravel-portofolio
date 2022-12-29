@@ -1,9 +1,12 @@
+// Import Core Libraries
 import { useState } from "react";
-import ApplicationLogo from "@/Components/ApplicationLogo";
-import Dropdown from "@/Components/Dropdown";
-import NavLink from "@/Components/NavLink";
-import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/inertia-react";
+
+// Import Components
+import NavLink from "@/Components/NavLink";
+import Dropdown from "@/Components/Dropdown";
+import ApplicationLogo from "@/Components/ApplicationLogo";
+import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 
 export default function Authenticated({ auth, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =

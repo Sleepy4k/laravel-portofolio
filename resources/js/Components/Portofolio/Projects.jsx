@@ -1,7 +1,8 @@
-import Container from "react-bootstrap/Container";
-import Card from "react-bootstrap/Card";
+// Import Bootstrap Components
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
 
 export default function Projects({ projects }) {
     return (
@@ -9,7 +10,7 @@ export default function Projects({ projects }) {
             <Container>
                 <Row className="text-center mb-3">
                     <Col>
-                        <h2>My Projects</h2>
+                        <h2>{transData("page.project.title")}</h2>
                     </Col>
                 </Row>
                 <Row className="justify-content-evenly">
