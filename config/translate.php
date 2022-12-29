@@ -195,11 +195,443 @@ return [
             ]
         ],
         [
+            'group' => 'page',
+            'key' => 'dashboard.welcome',
+            'text' => [
+                'id' => 'Selamat datang Kembali',
+                'en' => 'Welcome Back'
+            ]
+        ],
+        [
+            'group' => 'page',
+            'key' => 'profile.title',
+            'text' => [
+                'id' => 'Informasi Profil',
+                'en' => 'Profile Information'
+            ]
+        ],
+        [
+            'group' => 'page',
+            'key' => 'profile.description',
+            'text' => [
+                'id' => 'Perbarui informasi profil akun dan alamat email Anda.',
+                'en' => "Update your account's profile information and email address."
+            ]
+        ],
+        [
+            'group' => 'page',
+            'key' => 'password.title',
+            'text' => [
+                'id' => 'Perbarui Kata Sandi',
+                'en' => 'Update Password'
+            ]
+        ],
+        [
+            'group' => 'page',
+            'key' => 'password.description',
+            'text' => [
+                'id' => 'Pastikan akun Anda menggunakan kata sandi acak yang panjang agar tetap aman.',
+                'en' => 'Ensure your account is using a long, random password to stay secure.'
+            ]
+        ],
+        [
+            'group' => 'page',
+            'key' => 'about.title',
+            'text' => [
+                'id' => 'Tentang Saya',
+                'en' => 'About Me'
+            ]
+        ],
+        [
+            'group' => 'page',
+            'key' => 'contact.title',
+            'text' => [
+                'id' => 'Hubungi Saya',
+                'en' => 'Contact Me'
+            ]
+        ],
+        [
+            'group' => 'page',
+            'key' => 'project.title',
+            'text' => [
+                'id' => 'Project Saya',
+                'en' => 'My Project'
+            ]
+        ],
+        [
+            'group' => 'page',
+            'key' => 'translate.add',
+            'text' => [
+                'id' => 'Tambah Terjemahan',
+                'en' => 'Add Translate'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'login.email',
+            'text' => [
+                'id' => 'Surel',
+                'en' => 'Email'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'login.password',
+            'text' => [
+                'id' => 'Kata Sandi',
+                'en' => 'Password'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'login.remember',
+            'text' => [
+                'id' => 'Ingat Saya',
+                'en' => 'Remember Me'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'login.back',
+            'text' => [
+                'id' => 'Kembali',
+                'en' => 'Back'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'login.submit',
+            'text' => [
+                'id' => 'Masuk',
+                'en' => 'Login'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'password.current',
+            'text' => [
+                'id' => 'Kata Sandi Saat Ini',
+                'en' => 'Current Password'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'password.new',
+            'text' => [
+                'id' => 'Kata Sandi Baru',
+                'en' => 'New Password'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'password.confirm',
+            'text' => [
+                'id' => 'Konfirmasi Kata Sandi',
+                'en' => 'Confirm Password'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'password.submit',
+            'text' => [
+                'id' => 'Simpan',
+                'en' => 'Save'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'password.submited',
+            'text' => [
+                'id' => 'Tersimpan',
+                'en' => 'Saved'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'profile.name',
+            'text' => [
+                'id' => 'Nama',
+                'en' => 'Name'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'profile.email',
+            'text' => [
+                'id' => 'Surel',
+                'en' => 'Email'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'profile.submit',
+            'text' => [
+                'id' => 'Simpan',
+                'en' => 'Save'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'profile.submited',
+            'text' => [
+                'id' => 'Tersimpan',
+                'en' => 'Saved'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'translate.group',
+            'text' => [
+                'id' => 'Kelompok',
+                'en' => 'Group'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'translate.group',
+            'text' => [
+                'id' => 'Kelompok',
+                'en' => 'Group'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'translate.key',
+            'text' => [
+                'id' => 'Kata Kunci',
+                'en' => 'Key'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'translate.id',
+            'text' => [
+                'id' => 'Bahasa Indonesia',
+                'en' => 'Indonesian'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'translate.en',
+            'text' => [
+                'id' => 'Bahasa Inggris',
+                'en' => 'English'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'translate.back',
+            'text' => [
+                'id' => 'Kembali',
+                'en' => 'Back'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'translate.submit',
+            'text' => [
+                'id' => 'Kirim',
+                'en' => 'Submit'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'contact.name',
+            'text' => [
+                'id' => 'Nama',
+                'en' => 'Name'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'contact.email',
+            'text' => [
+                'id' => 'Surel',
+                'en' => 'Email'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'contact.message',
+            'text' => [
+                'id' => 'Pesan',
+                'en' => 'Message'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'contact.submit',
+            'text' => [
+                'id' => 'Kirim',
+                'en' => 'Submit'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'translate.placeholder.group',
+            'text' => [
+                'id' => 'Kelompok Terjemahan',
+                'en' => 'Translate Group'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'translate.placeholder.key',
+            'text' => [
+                'id' => 'Kata Kunci Terjemahan',
+                'en' => 'Translate Key'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'translate.placeholder.id',
+            'text' => [
+                'id' => 'Terjemahan Bahasa Indonesia',
+                'en' => 'Translate in Indonesian'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'translate.placeholder.en',
+            'text' => [
+                'id' => 'Terjemahan Bahasa Inggris',
+                'en' => 'Translate in English'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'contact.placeholder.name',
+            'text' => [
+                'id' => 'Nama Kamu',
+                'en' => 'Your Name'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'contact.placeholder.email',
+            'text' => [
+                'id' => 'Surel Kamu',
+                'en' => 'Your Email'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'contact.placeholder.message',
+            'text' => [
+                'id' => 'Pesan Kamu',
+                'en' => 'Your Message'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'translate.index',
+            'text' => [
+                'id' => 'Indeks',
+                'en' => 'Index'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'translate.group',
+            'text' => [
+                'id' => 'Kelompok',
+                'en' => 'Group'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'translate.key',
+            'text' => [
+                'id' => 'Kata Kunci',
+                'en' => 'Key'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'translate.id',
+            'text' => [
+                'id' => 'Bahasa Indonesia',
+                'en' => 'Indonesian'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'translate.en',
+            'text' => [
+                'id' => 'Bahasa Inggris',
+                'en' => 'English'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'translate.action',
+            'text' => [
+                'id' => 'Tindakan',
+                'en' => 'Action'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'translate.edit',
+            'text' => [
+                'id' => 'Ubah',
+                'en' => 'Edit'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'translate.delete',
+            'text' => [
+                'id' => 'Hapus',
+                'en' => 'Delete'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'translate.empty',
+            'text' => [
+                'id' => 'Belum ada data yang tersedia',
+                'en' => 'No data available yet'
+            ]
+        ],
+        [
             'group' => 'footer',
             'key' => 'copyright',
             'text' => [
-                'id' => 'Hak cipta © :year :name',
-                'en' => 'Copyright © :year :name'
+                'id' => 'Created with love by',
+                'en' => 'Dibuat dengan cinta oleh'
+            ]
+        ],
+        [
+            'group' => 'navbar',
+            'key' => 'home',
+            'text' => [
+                'id' => 'Profil',
+                'en' => 'Home'
+            ]
+        ],
+        [
+            'group' => 'navbar',
+            'key' => 'about',
+            'text' => [
+                'id' => 'Tentang Saya',
+                'en' => 'About Me'
+            ]
+        ],
+        [
+            'group' => 'navbar',
+            'key' => 'project',
+            'text' => [
+                'id' => 'Project Saya',
+                'en' => 'My Project'
+            ]
+        ],
+        [
+            'group' => 'navbar',
+            'key' => 'contact',
+            'text' => [
+                'id' => 'Hubungi Saya',
+                'en' => 'Contact Me'
             ]
         ],
         [
