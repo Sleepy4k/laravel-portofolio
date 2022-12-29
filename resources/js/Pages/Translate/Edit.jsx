@@ -1,6 +1,9 @@
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+// Import Core Libraries
 import { Head } from "@inertiajs/inertia-react";
+
+// Import Components
 import EditForm from "@/Components/Translate/EditForm";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 export default function TranslateEdit(props) {
     return (

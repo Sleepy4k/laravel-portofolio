@@ -1,6 +1,9 @@
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+// Import Core Libraries
 import { Head } from "@inertiajs/inertia-react";
+
+// Import Components
 import CreateForm from "@/Components/Translate/CreateForm";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 export default function TranslateCreate(props) {
     return (

@@ -1,26 +1,26 @@
+// Import Core Libraries
 import { Link } from "@inertiajs/inertia-react";
-import Button from "react-bootstrap/Button";
 
 export default function DataTable({ translate }) {
     return (
         <div className="card-body">
             <div className="table-responsive">
-                <Button
+                <Link
                     href={route("translate.create")}
-                    variant="success"
-                    className="mb-3"
+                    as="button"
+                    className="btn btn-success mb-3"
                 >
-                    Tambah Translate
-                </Button>
+                    {transData("page.translate.add")}
+                </Link>
                 <table className="table align-items-center">
                     <thead>
                         <tr className="text-center">
-                            <th>Index</th>
-                            <th>Group</th>
-                            <th>Key</th>
-                            <th>Lang ID</th>
-                            <th>Lang EN</th>
-                            <th>Action</th>
+                            <th>{transData("table.translate.index")}</th>
+                            <th>{transData("table.translate.group")}</th>
+                            <th>{transData("table.translate.key")}</th>
+                            <th>{transData("table.translate.id")}</th>
+                            <th>{transData("table.translate.en")}</th>
+                            <th>{transData("table.translate.action")}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,7 +41,9 @@ export default function DataTable({ translate }) {
                                                 )}
                                                 as="button"
                                             >
-                                                Edit
+                                                {transData(
+                                                    "table.translate.edit"
+                                                )}
                                             </Link>
                                             <span> | </span>
                                             <Link
@@ -57,13 +59,20 @@ export default function DataTable({ translate }) {
                                                             "Apakah kamu yakin mau menghapus data ini? \n\nData akan terhapus secara permanen"
                                                         ) == true
                                                     ) {
+                                                        removeTransData(
+                                                            data.group +
+                                                                "." +
+                                                                data.key
+                                                        );
                                                         return;
                                                     } else {
                                                         e.preventDefault();
                                                     }
                                                 }}
                                             >
-                                                Delete
+                                                {transData(
+                                                    "table.translate.delete"
+                                                )}
                                             </Link>
                                         </td>
                                     </tr>
@@ -72,7 +81,7 @@ export default function DataTable({ translate }) {
                         ) : (
                             <tr>
                                 <td colSpan="5" className="text-center">
-                                    Belum ada data yang tersedia
+                                    {transData("table.translate.empty")}
                                 </td>
                             </tr>
                         )}

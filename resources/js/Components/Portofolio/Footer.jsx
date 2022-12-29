@@ -2,7 +2,7 @@ export default function Footer({ owner }) {
     return (
         <footer className="copyright pb-1">
             <p>
-                Created with love by{" "}
+                {transData("footer.copyright")}{" "}
                 <a
                     href="https://github.com/sleepy4k"
                     className="copyright-link"

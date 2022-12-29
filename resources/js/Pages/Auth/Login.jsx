@@ -1,11 +1,14 @@
+// Import Core Libraries
 import { useEffect } from "react";
+import { Head, Link, useForm } from "@inertiajs/inertia-react";
+
+// Import Components
 import Checkbox from "@/Components/Checkbox";
+import TextInput from "@/Components/TextInput";
 import GuestLayout from "@/Layouts/GuestLayout";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
-import TextInput from "@/Components/TextInput";
-import { Head, Link, useForm } from "@inertiajs/inertia-react";
 
 export default function Login({ status }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -47,7 +50,10 @@ export default function Login({ status }) {
 
             <form onSubmit={submit}>
                 <div>
-                    <InputLabel forInput="email" value="Email" />
+                    <InputLabel
+                        forInput="email"
+                        value={transData("form.login.email")}
+                    />
 
                     <TextInput
                         id="email"
@@ -64,7 +70,10 @@ export default function Login({ status }) {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel forInput="password" value="Password" />
+                    <InputLabel
+                        forInput="password"
+                        value={transData("form.login.password")}
+                    />
 
                     <TextInput
                         id="password"
@@ -87,18 +96,18 @@ export default function Login({ status }) {
                             handleChange={onHandleChange}
                         />
                         <span className="ml-2 text-sm text-gray-600 dark:text-gray-400">
-                            Remember me
+                            {transData("form.login.remember")}
                         </span>
                     </label>
                 </div>
 
                 <div className="flex items-center justify-end mt-4">
-                    <Link href="/" as="button">
-                        Back
+                    <Link href="/" as="button" className="btn btn-success">
+                        {transData("form.login.back")}
                     </Link>
 
                     <PrimaryButton className="ml-4" processing={processing}>
-                        Log in
+                        {transData("form.login.submit")}
                     </PrimaryButton>
                 </div>
             </form>

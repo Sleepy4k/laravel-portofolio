@@ -1,43 +1,52 @@
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
-import { Link, useForm, usePage } from '@inertiajs/inertia-react';
-import { Transition } from '@headlessui/react';
+// Import Core Libraries
+import { Transition } from "@headlessui/react";
+import { Link, useForm, usePage } from "@inertiajs/inertia-react";
 
-export default function UpdateProfileInformation({ mustVerifyEmail, status, className }) {
+// Import Components
+import InputError from "@/Components/InputError";
+import InputLabel from "@/Components/InputLabel";
+import PrimaryButton from "@/Components/PrimaryButton";
+import TextInput from "@/Components/TextInput";
+
+export default function UpdateProfileInformation({ className }) {
     const user = usePage().props.auth.user;
 
-    const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
-        name: user.name,
-        email: user.email,
-    });
+    const { data, setData, patch, errors, processing, recentlySuccessful } =
+        useForm({
+            name: user.name,
+            email: user.email,
+        });
 
     const submit = (e) => {
         e.preventDefault();
 
-        patch(route('profile.update'));
+        patch(route("profile.update"));
     };
 
     return (
         <section className={className}>
             <header>
-                <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">Profile Information</h2>
+                <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+                    {transData("page.profile.title")}
+                </h2>
 
                 <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                    Update your account's profile information and email address.
+                    {transData("page.profile.description")}
                 </p>
             </header>
 
             <form onSubmit={submit} className="mt-6 space-y-6">
                 <div>
-                    <InputLabel for="name" value="Name" />
+                    <InputLabel
+                        for="name"
+                        value={transData("form.profile.name")}
+                    />
 
                     <TextInput
                         id="name"
                         className="mt-1 block w-full"
                         value={data.name}
-                        handleChange={(e) => setData('name', e.target.value)}
+                        handleChange={(e) => setData("name", e.target.value)}
                         required
                         isFocused
                         autoComplete="name"
@@ -47,14 +56,17 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                 </div>
 
                 <div>
-                    <InputLabel for="email" value="Email" />
+                    <InputLabel
+                        for="email"
+                        value={transData("form.profile.name")}
+                    />
 
                     <TextInput
                         id="email"
                         type="email"
                         className="mt-1 block w-full"
                         value={data.email}
-                        handleChange={(e) => setData('email', e.target.value)}
+                        handleChange={(e) => setData("email", e.target.value)}
                         required
                         autoComplete="email"
                     />
@@ -62,30 +74,10 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                     <InputError className="mt-2" message={errors.email} />
                 </div>
 
-                {mustVerifyEmail && user.email_verified_at === null && (
-                    <div>
-                        <p className="text-sm mt-2 text-gray-800 dark:text-gray-200">
-                            Your email address is unverified.
-                            <Link
-                                href={route('verification.send')}
-                                method="post"
-                                as="button"
-                                className="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
-                            >
-                                Click here to re-send the verification email.
-                            </Link>
-                        </p>
-
-                        {status === 'verification-link-sent' && (
-                            <div className="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
-                                A new verification link has been sent to your email address.
-                            </div>
-                        )}
-                    </div>
-                )}
-
                 <div className="flex items-center gap-4">
-                    <PrimaryButton processing={processing}>Save</PrimaryButton>
+                    <PrimaryButton processing={processing}>
+                        {transData("form.profile.submit")}
+                    </PrimaryButton>
 
                     <Transition
                         show={recentlySuccessful}
@@ -93,7 +85,9 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                         leaveTo="opacity-0"
                         className="transition ease-in-out"
                     >
-                        <p className="text-sm text-gray-600 dark:text-gray-400">Saved.</p>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                            {transData("form.profile.submited")}
+                        </p>
                     </Transition>
                 </div>
             </form>
