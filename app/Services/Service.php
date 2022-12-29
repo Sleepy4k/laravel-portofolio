@@ -19,7 +19,7 @@ class Service
     /**
      * @var contactInterface
      */
-    protected $contatInterface;
+    protected $contactInterface;
 
     /**
      * @var projectInterface
