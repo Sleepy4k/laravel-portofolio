@@ -267,6 +267,14 @@ return [
             ]
         ],
         [
+            'group' => 'page',
+            'key' => 'project.add',
+            'text' => [
+                'id' => 'Tambah Projek',
+                'en' => 'Add Project'
+            ]
+        ],
+        [
             'group' => 'form',
             'key' => 'login.email',
             'text' => [
@@ -476,6 +484,46 @@ return [
         ],
         [
             'group' => 'form',
+            'key' => 'project.title',
+            'text' => [
+                'id' => 'Judul',
+                'en' => 'Title'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'project.description',
+            'text' => [
+                'id' => 'Deskripsi',
+                'en' => 'Description'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'project.image',
+            'text' => [
+                'id' => 'Gambar',
+                'en' => 'Image'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'project.back',
+            'text' => [
+                'id' => 'Kembali',
+                'en' => 'Back'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'project.submit',
+            'text' => [
+                'id' => 'Kirim',
+                'en' => 'Submit'
+            ]
+        ],
+        [
+            'group' => 'form',
             'key' => 'translate.placeholder.group',
             'text' => [
                 'id' => 'Kelompok Terjemahan',
@@ -528,6 +576,22 @@ return [
             'text' => [
                 'id' => 'Pesan Kamu',
                 'en' => 'Your Message'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'project.placeholder.title',
+            'text' => [
+                'id' => 'Judul Projek',
+                'en' => 'Project Title'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'project.placeholder.description',
+            'text' => [
+                'id' => 'Deskripsi Projek',
+                'en' => 'Project Description'
             ]
         ],
         [
@@ -653,6 +717,78 @@ return [
         [
             'group' => 'table',
             'key' => 'contact.empty',
+            'text' => [
+                'id' => 'Belum ada data yang tersedia',
+                'en' => 'No data available yet'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'project.index',
+            'text' => [
+                'id' => 'Indeks',
+                'en' => 'Index'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'project.title',
+            'text' => [
+                'id' => 'Judul',
+                'en' => 'Title'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'project.description',
+            'text' => [
+                'id' => 'Deskripsi',
+                'en' => 'Description'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'project.image',
+            'text' => [
+                'id' => 'Gambar',
+                'en' => 'Image'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'project.action',
+            'text' => [
+                'id' => 'Tindakan',
+                'en' => 'Action'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'project.edit',
+            'text' => [
+                'id' => 'Ubah',
+                'en' => 'Edit'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'project.show',
+            'text' => [
+                'id' => 'Detail',
+                'en' => 'Detail'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'project.delete',
+            'text' => [
+                'id' => 'Hapus',
+                'en' => 'Delete'
+            ]
+        ],
+        [
+            'group' => 'table',
+            'key' => 'project.empty',
             'text' => [
                 'id' => 'Belum ada data yang tersedia',
                 'en' => 'No data available yet'

@@ -2,9 +2,9 @@
 
 namespace App\Services;
 
-use App\Http\Resources\TranslateCollection;
+use App\Http\Resources\ProjectCollection;
 
-class TranslateService extends Service
+class ProjectService extends Service
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class TranslateService extends Service
     public function index()
     {
         return [
-            'translate' => new TranslateCollection($this->languageInterface->paginate(10))
+            'project' => new ProjectCollection($this->projectInterface->paginate(10))
         ];
     }
 
@@ -37,12 +37,25 @@ class TranslateService extends Service
     public function store($request)
     {
         try {
-            $this->languageInterface->create($request);
+            $this->projectInterface->create($request);
 
             return true;
         } catch (\Throwable $th) {
             return false;
         }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return array
+     */
+    public function show($id)
+    {
+        return [
+            'project' => $this->projectInterface->findById($id)
+        ];
     }
 
     /**
@@ -54,7 +67,7 @@ class TranslateService extends Service
     public function edit($id)
     {
         return [
-            'translate' => $this->languageInterface->findById($id)
+            'project' => $this->projectInterface->findById($id)
         ];
     }
 
@@ -68,7 +81,7 @@ class TranslateService extends Service
     public function update($request, $id)
     {
         try {
-            $this->languageInterface->update($id, $request);
+            $this->projectInterface->update($id, $request);
 
             return true;
         } catch (\Throwable $th) {
@@ -85,7 +98,7 @@ class TranslateService extends Service
     public function destroy($id)
     {
         try {
-            $this->languageInterface->deleteById($id);
+            $this->projectInterface->deleteById($id);
 
             return true;
         } catch (\Throwable $th) {

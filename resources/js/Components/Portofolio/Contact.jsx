@@ -10,6 +10,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
 export default function Contact() {
+    const [validated, setValidated] = useState(false);
     const [values, setValues] = useState({
         name: "",
         email: "",
@@ -24,7 +25,14 @@ export default function Contact() {
     };
 
     const handleSubmit = (e) => {
+        const form = e.currentTarget;
         e.preventDefault();
+
+        if (form.checkValidity() === false) {
+            e.stopPropagation();
+        }
+
+        setValidated(true);
 
         alert(
             "Thank you for your message. I will read it as soon as possible."
@@ -43,7 +51,11 @@ export default function Contact() {
                 </Row>
                 <Row className="justify-content-center">
                     <Col className="col-md-6">
-                        <Form>
+                        <Form
+                            noValidate
+                            validated={validated}
+                            onSubmit={handleSubmit}
+                        >
                             <Form.Group className="mb-3" controlId="name">
                                 <Form.Label>
                                     {transData("form.contact.name")}
@@ -55,8 +67,13 @@ export default function Contact() {
                                         "form.contact.placeholder.name"
                                     )}
                                     onChange={handleChanges}
+                                    required
+                                    autoFocus
                                 />
                             </Form.Group>
+                            <Form.Control.Feedback type="invalid">
+                                {transData("form.contact.error.name")}
+                            </Form.Control.Feedback>
                             <Form.Group className="mb-3" controlId="email">
                                 <Form.Label>
                                     {transData("form.contact.email")}
@@ -68,8 +85,13 @@ export default function Contact() {
                                         "form.contact.placeholder.email"
                                     )}
                                     onChange={handleChanges}
+                                    required
+                                    autoFocus
                                 />
                             </Form.Group>
+                            <Form.Control.Feedback type="invalid">
+                                {transData("form.contact.error.email")}
+                            </Form.Control.Feedback>
                             <Form.Group className="mb-3" controlId="message">
                                 <Form.Label>
                                     {transData("form.contact.message")}
@@ -82,13 +104,14 @@ export default function Contact() {
                                         "form.contact.placeholder.message"
                                     )}
                                     onChange={handleChanges}
+                                    required
+                                    autoFocus
                                 />
                             </Form.Group>
-                            <Button
-                                variant="primary"
-                                type="submit"
-                                onClick={handleSubmit}
-                            >
+                            <Form.Control.Feedback type="invalid">
+                                {transData("form.contact.error.message")}
+                            </Form.Control.Feedback>
+                            <Button variant="primary" type="submit">
                                 {transData("form.contact.submit")}
                             </Button>
                         </Form>

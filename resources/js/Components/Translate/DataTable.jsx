@@ -1,6 +1,9 @@
 // Import Core Libraries
 import { Link } from "@inertiajs/inertia-react";
 
+// Import Bootstrap Components
+import Table from "react-bootstrap/Table";
+
 export default function DataTable({ translate }) {
     return (
         <div className="card-body">
@@ -12,7 +15,7 @@ export default function DataTable({ translate }) {
                 >
                     {transData("page.translate.add")}
                 </Link>
-                <table className="table align-items-center">
+                <Table className="table align-items-center" responsive>
                     <thead>
                         <tr className="text-center">
                             <th>{transData("table.translate.index")}</th>
@@ -86,7 +89,7 @@ export default function DataTable({ translate }) {
                             </tr>
                         )}
                     </tbody>
-                </table>
+                </Table>
             </div>
         </div>
     );

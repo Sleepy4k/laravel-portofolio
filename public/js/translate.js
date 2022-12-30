@@ -1,6 +1,8 @@
 var simpleCache = {};
 
 function handleCache() {
+    var self = this;
+
     var now = function () {
         return new Date().getTime() / 1000;
     };
@@ -41,11 +43,11 @@ function handleCache() {
         var curr = now();
         for (var key in simpleCache)
             if (simpleCache.hasOwnProperty(key))
-                if (this.expired(simpleCache[key].expires, curr))
-                    this.remove(key);
+                if (self.expired(simpleCache[key].expires, curr))
+                    self.remove(key);
     };
 
-    setInterval(this.trim, 600 * 1000);
+    setInterval(self.trim, 600 * 1000);
 }
 
 function getTransData(transKey) {

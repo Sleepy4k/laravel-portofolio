@@ -22,13 +22,13 @@ export default function Projects({ projects }) {
                                         {project.image === null ? (
                                             <Card.Img
                                                 variant="top"
-                                                src="image/projects/project-1.jpg"
+                                                src="/image/projects/project-1.jpg"
                                                 alt="Project 1"
                                             />
                                         ) : (
                                             <Card.Img
                                                 variant="top"
-                                                src={`storage/image/${project.image}`}
+                                                src={`/storage/image/${project.image}`}
                                                 alt="Project 1"
                                             />
                                         )}

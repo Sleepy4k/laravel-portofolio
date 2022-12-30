@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Translate;
+namespace App\Http\Requests\Project;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,11 +25,11 @@ class UpdateRequest extends FormRequest
     {
         $id = basename(request()->path());
 
+        dd($this->title);
         return [
-            'group' => ['required', 'string', 'max:255'],
-            'key' => ['required', 'string', 'max:255', 'unique:language_lines,key,' . $id],
-            'id' => ['required', 'string', 'max:255'],
-            'en' => ['required', 'string', 'max:255']
+            'title' => ['required', 'string', 'max:255', 'unique:projects,title,' . $id],
+            'description' => ['required', 'string'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,svg', 'max:4092', 'dimensions:min_width=100,min_height=100']
         ];
     }
 
@@ -41,10 +41,9 @@ class UpdateRequest extends FormRequest
     public function attributes()
     {
         return [
-            'group' => trans('form.translate.group'),
-            'key' => trans('form.translate.key'),
-            'id' => trans('form.translate.id'),
-            'en' => trans('form.translate.en')
+            'title' => trans('form.project.title'),
+            'description' => trans('form.project.description'),
+            'image' => trans('form.project.image')
         ];
     }
 }
