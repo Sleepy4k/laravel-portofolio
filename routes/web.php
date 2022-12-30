@@ -4,6 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TranslateController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\AuthenticatedSessionController;
@@ -63,6 +64,7 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('Dashboard');
     })->middleware('verified')->name('dashboard.index');
 
+    Route::resource('project', ProjectController::class);
     Route::resource('contact', ContactController::class, ['only' => ['index', 'show']]);
     Route::resource('translate', TranslateController::class, ['except' => ['show']]);
 
