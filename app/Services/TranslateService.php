@@ -84,8 +84,12 @@ class TranslateService extends Service
      */
     public function destroy($id)
     {
-        $this->languageInterface->deleteById($id);
+        try {
+            $this->languageInterface->deleteById($id);
 
-        return true;
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
     }
 }
