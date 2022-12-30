@@ -41,8 +41,8 @@ class StoreRequest extends FormRequest
         return [
             'group' => trans('form.translate.group'),
             'key' => trans('form.translate.key'),
-            'lang_id' => trans('form.translate.lang_id'),
-            'lang_en' => trans('form.translate.lang_en')
+            'id' => trans('form.translate.id'),
+            'en' => trans('form.translate.en')
         ];
     }
 }
