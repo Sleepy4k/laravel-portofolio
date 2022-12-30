@@ -25,11 +25,11 @@ export default function EditForm({ translate }) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        Inertia.patch("/translate/" + translate.id, values);
         updateTransData(
             translate.group + "." + translate.key,
             values.group + "." + values.key
         );
+        Inertia.patch("/translate/" + translate.id, values);
     };
 
     return (

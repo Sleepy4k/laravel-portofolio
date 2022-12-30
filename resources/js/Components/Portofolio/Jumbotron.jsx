@@ -3,14 +3,14 @@ export default function Jumbotron({ owner }) {
         <section className="jumbotron text-center">
             {owner.image === null ? (
                 <img
-                    src="image/jumbotron/ayang.jpg"
+                    src="/image/jumbotron/ayang.jpg"
                     alt={owner.name}
                     width="200"
                     className="rounded-circle inline-block img-thumbnail shadow-sm"
                 />
             ) : (
                 <img
-                    src={`storage/image/${owner.image}`}
+                    src={`/storage/image/${owner.image}`}
                     alt={owner.name}
                     width="200"
                     className="rounded-circle inline-block img-thumbnail shadow-sm"

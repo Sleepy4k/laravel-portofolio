@@ -1,11 +1,14 @@
 // Import Core Libraries
 import { Link } from "@inertiajs/inertia-react";
 
+// Import Bootstrap Components
+import Table from "react-bootstrap/Table";
+
 export default function DataTable({ contact }) {
     return (
         <div className="card-body">
             <div className="table-responsive">
-                <table className="table align-items-center">
+                <Table className="table align-items-center" responsive>
                     <thead>
                         <tr className="text-center">
                             <th>{transData("table.contact.index")}</th>
@@ -55,7 +58,7 @@ export default function DataTable({ contact }) {
                             </tr>
                         )}
                     </tbody>
-                </table>
+                </Table>
             </div>
         </div>
     );
