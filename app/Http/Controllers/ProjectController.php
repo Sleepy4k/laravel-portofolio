@@ -13,7 +13,7 @@ class ProjectController extends Controller
      * Display a listing of the resource.
      *
      * @param  \App\Services\ProjectService  $service
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function index(ProjectService $service)
     {
@@ -24,7 +24,7 @@ class ProjectController extends Controller
      * Show the form for creating a new resource.
      *
      * @param  \App\Services\ProjectService  $service
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function create(ProjectService $service)
     {
@@ -48,7 +48,7 @@ class ProjectController extends Controller
      *
      * @param  \App\Services\ProjectService  $service
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function show(ProjectService $service, $id)
     {
@@ -60,7 +60,7 @@ class ProjectController extends Controller
      *
      * @param  \App\Services\ProjectService  $service
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function edit(ProjectService $service, $id)
     {
