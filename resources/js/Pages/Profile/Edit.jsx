@@ -5,8 +5,8 @@ import { Head } from "@inertiajs/inertia-react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 // Import Partials
-import UpdatePasswordForm from "./Partials/UpdatePasswordForm";
-import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm";
+import UpdatePasswordForm from "@/Partials/Auth/UpdatePasswordForm";
+import UpdateProfileInformationForm from "@/Partials/Auth/UpdateProfileInformationForm";
 
 export default function Edit({ auth }) {
     return (

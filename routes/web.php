@@ -52,15 +52,18 @@ Route::middleware('guest')->group(function () {
 */
 
 Route::middleware('auth')->group(function () {
-    // Single endpoint
-    Route::get('profile', 'ProfileController@edit')->name('profile.edit');
     Route::post('logout', 'AuthenticatedController@destroy')->name('logout');
-    Route::patch('profile', 'ProfileController@update')->name('profile.update');
     Route::get('dashboard', 'DashboardController@index')->middleware('verified')->name('dashboard.index');
 
-    // Resource endpoint 
-    Route::resource('project', 'ProjectController');
-    Route::resource('translate', 'TranslateController')->except('show');
-    Route::resource('contact', 'ContactController')->only('index', 'show');
-    Route::resource('about', 'AboutController')->only('index', 'create', 'store');
+    Route::prefix('dashboard')->group(function () {
+        // Single endpoint
+        Route::get('profile', 'ProfileController@edit')->name('profile.edit');
+        Route::patch('profile', 'ProfileController@update')->name('profile.update');
+
+        // Resource endpoint 
+        Route::resource('project', 'ProjectController');
+        Route::resource('translate', 'TranslateController')->except('show');
+        Route::resource('contact', 'ContactController')->only('index', 'show');
+        Route::resource('about', 'AboutController')->only('index', 'create', 'store');
+    });
 });

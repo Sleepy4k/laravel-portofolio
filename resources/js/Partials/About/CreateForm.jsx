@@ -8,7 +8,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 // Import Custom Components
-import InputError from "../InputError";
+import InputError from "../../Components/InputError";
 
 export default function CreateForm({ about, errors }) {
     const [validated, setValidated] = useState(false);
