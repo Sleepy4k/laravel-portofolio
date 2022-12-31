@@ -19,6 +19,23 @@ class ContactService extends Service
     }
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  array  $request
+     * @return array
+     */
+    public function store($request)
+    {
+        try {
+            $this->contactInterface->create($request);
+
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id

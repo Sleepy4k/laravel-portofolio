@@ -16,21 +16,4 @@ class PortofolioService extends Service
             'projects' => $this->projectInterface->all()
         ];
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  array  $request
-     * @return array
-     */
-    public function store($request)
-    {
-        try {
-            $this->contactInterface->create($request);
-
-            return true;
-        } catch (\Throwable $th) {
-            return false;
-        }
-    }
 }
