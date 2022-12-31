@@ -9,8 +9,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
-export default function Contact() {
-    const [validated, setValidated] = useState(false);
+export default function Contact({ errors }) {
     const [values, setValues] = useState({
         name: "",
         email: "",
@@ -25,20 +24,15 @@ export default function Contact() {
     };
 
     const handleSubmit = (e) => {
-        const form = e.currentTarget;
         e.preventDefault();
 
-        if (form.checkValidity() === false) {
-            e.stopPropagation();
-        }
+        Inertia.post("/contact", values);
 
-        setValidated(true);
+        e.target.reset();
 
         alert(
             "Thank you for your message. I will read it as soon as possible."
         );
-
-        Inertia.post("/contact", values);
     };
 
     return (
@@ -51,11 +45,7 @@ export default function Contact() {
                 </Row>
                 <Row className="justify-content-center">
                     <Col className="col-md-6">
-                        <Form
-                            noValidate
-                            validated={validated}
-                            onSubmit={handleSubmit}
-                        >
+                        <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="name">
                                 <Form.Label>
                                     {transData("form.contact.name")}
@@ -70,10 +60,12 @@ export default function Contact() {
                                     required
                                     autoFocus
                                 />
+                                {errors.name && (
+                                    <div className="invalid-feedback">
+                                        {errors.name}
+                                    </div>
+                                )}
                             </Form.Group>
-                            <Form.Control.Feedback type="invalid">
-                                {transData("form.contact.error.name")}
-                            </Form.Control.Feedback>
                             <Form.Group className="mb-3" controlId="email">
                                 <Form.Label>
                                     {transData("form.contact.email")}
@@ -88,10 +80,12 @@ export default function Contact() {
                                     required
                                     autoFocus
                                 />
+                                {errors.email && (
+                                    <div className="invalid-feedback">
+                                        {errors.email}
+                                    </div>
+                                )}
                             </Form.Group>
-                            <Form.Control.Feedback type="invalid">
-                                {transData("form.contact.error.email")}
-                            </Form.Control.Feedback>
                             <Form.Group className="mb-3" controlId="message">
                                 <Form.Label>
                                     {transData("form.contact.message")}
@@ -107,10 +101,12 @@ export default function Contact() {
                                     required
                                     autoFocus
                                 />
+                                {errors.message && (
+                                    <div className="invalid-feedback">
+                                        {errors.message}
+                                    </div>
+                                )}
                             </Form.Group>
-                            <Form.Control.Feedback type="invalid">
-                                {transData("form.contact.error.message")}
-                            </Form.Control.Feedback>
                             <Button variant="primary" type="submit">
                                 {transData("form.contact.submit")}
                             </Button>
