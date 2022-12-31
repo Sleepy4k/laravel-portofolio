@@ -524,6 +524,86 @@ return [
         ],
         [
             'group' => 'form',
+            'key' => 'about.name',
+            'text' => [
+                'id' => 'Nama',
+                'en' => 'Name'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'about.hobby',
+            'text' => [
+                'id' => 'Hobi',
+                'en' => 'Hobby'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'about.interest',
+            'text' => [
+                'id' => 'Minat',
+                'en' => 'Interest'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'about.description',
+            'text' => [
+                'id' => 'Deskripsi',
+                'en' => 'Description'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'about.mission',
+            'text' => [
+                'id' => 'Misi',
+                'en' => 'Mission'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'about.image',
+            'text' => [
+                'id' => 'Foto',
+                'en' => 'Image'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'about.suggestion',
+            'text' => [
+                'id' => 'Disarankan foto yang berbentuk kota',
+                'en' => 'City-shaped photos are recommended'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'about.create',
+            'text' => [
+                'id' => 'Ubah',
+                'en' => 'Edit'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'about.back',
+            'text' => [
+                'id' => 'Kembali',
+                'en' => 'Back'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'about.submit',
+            'text' => [
+                'id' => 'Kirim',
+                'en' => 'Submit'
+            ]
+        ],
+        [
+            'group' => 'form',
             'key' => 'translate.placeholder.group',
             'text' => [
                 'id' => 'Kelompok Terjemahan',
