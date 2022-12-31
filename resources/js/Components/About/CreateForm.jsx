@@ -36,6 +36,10 @@ export default function CreateForm({ about, errors }) {
                 image: e.target.files[0],
             });
         } else {
+            setValues({
+                ...values,
+                [e.target.name]: e.target.value,
+            });
         }
     };
 
@@ -157,6 +161,9 @@ export default function CreateForm({ about, errors }) {
                     onChange={handleChanges}
                 />
                 <InputError message={errors.image} className="mt-2" />
+                <Form.Text className="text-muted">
+                    {transData("form.about.suggestion")}
+                </Form.Text>
             </Form.Group>
             <Link
                 href={route("about.index")}
