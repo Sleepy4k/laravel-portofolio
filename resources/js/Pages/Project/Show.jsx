@@ -4,8 +4,8 @@ import { Head } from "@inertiajs/inertia-react";
 // Import Layouts
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
-// Import Custom Components
-import ShowForm from "@/Components/Project/ShowForm";
+// Import Partials
+import ShowForm from "@/Partials/Project/ShowForm";
 
 export default function ProjectShow(props) {
     return (

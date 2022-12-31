@@ -1,6 +1,6 @@
 // Import Custom Components
-import Header from "@/Components/Portofolio/Header";
-import Footer from "@/Components/Portofolio/Footer";
+import Header from "@/Partials/Portofolio/Header";
+import Footer from "@/Partials/Portofolio/Footer";
 
 export default function Portofolio({ owner, application, children }) {
     return (

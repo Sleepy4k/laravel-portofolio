@@ -4,8 +4,8 @@ import { Head } from "@inertiajs/inertia-react";
 // Import Layouts
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
-// Import Custom Components
-import ShowForm from "@/Components/Contact/ShowForm";
+// Import Partials
+import ShowForm from "@/Partials/Contact/ShowForm";
 
 export default function ContactShow(props) {
     return (

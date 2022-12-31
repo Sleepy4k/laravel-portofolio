@@ -10,7 +10,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
 // Import Custom Components
-import InputError from "../InputError";
+import InputError from "../../Components/InputError";
 
 export default function Contact({ errors }) {
     const [values, setValues] = useState({

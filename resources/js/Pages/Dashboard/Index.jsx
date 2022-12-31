@@ -4,10 +4,10 @@ import { Head } from "@inertiajs/inertia-react";
 // Import Layouts
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
-// Import Custom Components
-import Welcome from "@/Components/Dashboard/Welcome";
+// Import Partials
+import Welcome from "@/Partials/Dashboard/Welcome";
 
-export default function Dashboard(props) {
+export default function DashboardIndex(props) {
     return (
         <AuthenticatedLayout auth={props.auth} errors={props.errors}>
             <Head title="Dashboard" />

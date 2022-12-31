@@ -4,8 +4,8 @@ import { Head } from "@inertiajs/inertia-react";
 // Import Layouts
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
-// Import Custom Components
-import ShowForm from "@/Components/About/ShowForm";
+// Import Partials
+import ShowForm from "@/Partials/About/ShowForm";
 
 export default function AboutIndex(props) {
     return (

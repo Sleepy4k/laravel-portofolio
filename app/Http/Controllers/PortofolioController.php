@@ -16,7 +16,7 @@ class PortofolioController extends Controller
      */
     public function index(PortofolioService $service)
     {
-        return Inertia::render('Portofolio', $service->index());
+        return Inertia::render('Portofolio/Index', $service->index());
     }
 
     /**

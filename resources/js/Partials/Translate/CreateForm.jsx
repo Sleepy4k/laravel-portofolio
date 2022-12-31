@@ -8,15 +8,15 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 // Import Custom Components
-import InputError from "../InputError";
+import InputError from "../../Components/InputError";
 
-export default function EditForm({ translate, errors }) {
+export default function CreateForm({ errors }) {
     const [validated, setValidated] = useState(false);
     const [values, setValues] = useState({
-        group: translate.group,
-        key: translate.key,
-        id: translate.text.id,
-        en: translate.text.en,
+        group: "",
+        key: "",
+        id: "",
+        en: "",
     });
 
     const handleChanges = (e) => {
@@ -35,13 +35,7 @@ export default function EditForm({ translate, errors }) {
         }
 
         setValidated(true);
-
-        updateTransData(
-            translate.group + "." + translate.key,
-            values.group + "." + values.key
-        );
-
-        Inertia.patch("/translate/" + translate.id, values);
+        Inertia.post("/translate", values);
     };
 
     return (
@@ -55,7 +49,6 @@ export default function EditForm({ translate, errors }) {
                     name="group"
                     placeholder={transData("form.translate.placeholder.group")}
                     onChange={handleChanges}
-                    defaultValue={translate.group}
                     required
                     autoFocus
                 />
@@ -70,7 +63,6 @@ export default function EditForm({ translate, errors }) {
                     name="key"
                     placeholder={transData("form.translate.placeholder.key")}
                     onChange={handleChanges}
-                    defaultValue={translate.key}
                     required
                     autoFocus
                 />
@@ -85,7 +77,6 @@ export default function EditForm({ translate, errors }) {
                     name="id"
                     placeholder={transData("form.translate.placeholder.id")}
                     onChange={handleChanges}
-                    defaultValue={translate.text.id}
                     required
                     autoFocus
                 />
@@ -100,7 +91,6 @@ export default function EditForm({ translate, errors }) {
                     name="en"
                     placeholder={transData("form.translate.placeholder.en")}
                     onChange={handleChanges}
-                    defaultValue={translate.text.en}
                     required
                     autoFocus
                 />

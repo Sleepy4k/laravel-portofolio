@@ -6,7 +6,9 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 // Import Custom Components
 import Paginator from "@/Components/Paginator";
-import DataTable from "@/Components/Contact/DataTable";
+
+// Import Partials
+import DataTable from "@/Partials/Contact/DataTable";
 
 export default function ContactIndex(props) {
     return (

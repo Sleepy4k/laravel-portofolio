@@ -6,7 +6,9 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 // Import Custom Components
 import Paginator from "@/Components/Paginator";
-import DataTable from "@/Components/Translate/DataTable";
+
+// Import Partials
+import DataTable from "@/Partials/Translate/DataTable";
 
 export default function TranslateIndex(props) {
     return (

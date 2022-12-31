@@ -4,8 +4,8 @@ import { Head } from "@inertiajs/inertia-react";
 // Import Layouts
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
-// Import Custom Components
-import CreateForm from "@/Components/Project/CreateForm";
+// Import Partials
+import CreateForm from "@/Partials/Project/CreateForm";
 
 export default function ProjectCreate(props) {
     return (
