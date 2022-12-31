@@ -15,7 +15,7 @@ class AboutSeeder extends Seeder
     public function run()
     {
         if (About::count() == 0) {
-            $facilities = About::factory(10)->make();
+            $facilities = About::factory(1)->make();
 
             About::insert($facilities->toArray());
         }
