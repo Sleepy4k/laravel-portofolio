@@ -39,7 +39,7 @@ class AboutService extends Service
     public function store($request)
     {
         try {
-            $this->aboutInterface->create($request);
+            $this->aboutInterface->update(1, $request);
 
             return true;
         } catch (\Throwable $th) {
