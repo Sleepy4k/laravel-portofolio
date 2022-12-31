@@ -61,10 +61,10 @@ export default function CreateForm({ errors }) {
                     required
                     autoFocus
                 />
+                {errors.title && (
+                    <div className="invalid-feedback">{errors.title}</div>
+                )}
             </Form.Group>
-            <Form.Control.Feedback type="invalid">
-                {errors.title}
-            </Form.Control.Feedback>
             <Form.Group className="mb-3" controlId="description">
                 <Form.Label>{transData("form.project.description")}</Form.Label>
                 <Form.Control
@@ -78,10 +78,10 @@ export default function CreateForm({ errors }) {
                     required
                     autoFocus
                 />
+                {errors.description && (
+                    <div className="invalid-feedback">{errors.description}</div>
+                )}
             </Form.Group>
-            <Form.Control.Feedback type="invalid">
-                {errors.description}
-            </Form.Control.Feedback>
             <Form.Group className="mb-3" controlId="image">
                 <Form.Label>{transData("form.project.image")}</Form.Label>
                 <img className="show-project-image mb-3" width={100} />
@@ -90,10 +90,10 @@ export default function CreateForm({ errors }) {
                     name="image"
                     onChange={handleChanges}
                 />
+                {errors.image && (
+                    <div className="invalid-feedback">{errors.image}</div>
+                )}
             </Form.Group>
-            <Form.Control.Feedback type="invalid">
-                {errors.image}
-            </Form.Control.Feedback>
             <Link
                 href={route("project.index")}
                 as="button"

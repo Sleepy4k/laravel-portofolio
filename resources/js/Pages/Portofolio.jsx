@@ -15,7 +15,7 @@ export default function Portofolio(props) {
             <Jumbotron owner={props.about} />
             <About owner={props.about} />
             <Projects projects={props.projects} />
-            <Contact />
+            <Contact errors={props.errors} />
         </PortofolioLayout>
     );
 }
