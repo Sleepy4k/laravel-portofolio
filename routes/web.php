@@ -1,13 +1,6 @@
 <?php
 
-use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\TranslateController;
-use App\Http\Controllers\PortofolioController;
-use App\Http\Controllers\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +23,9 @@ use App\Http\Controllers\AuthenticatedSessionController;
 | Remember not to list anything of importance, use authenticate route instead.
 */
 
-Route::get('/', [PortofolioController::class, 'index'])->name('landing.index');
-Route::post('contact', [PortofolioController::class, 'store'])->name('landing.store');
-Route::get('translate/get/{trans}', [TranslateController::class, 'show'])->name('translate.show');
+Route::get('/', 'PortofolioController@index')->name('landing.index');
+Route::post('contact', 'ContactController@store')->name('contact.store');
+Route::get('translate/get/{trans}', 'TranslateController@show')->name('translate.show');
 
 /*
 |--------------------------------------------------------------------------
@@ -45,8 +38,7 @@ Route::get('translate/get/{trans}', [TranslateController::class, 'show'])->name(
 */
 
 Route::middleware('guest')->group(function () {
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login.index');
-    Route::post('login', [AuthenticatedSessionController::class, 'store'])->name('login.store');
+    Route::resource('login', 'AuthenticatedController')->only('index', 'store');
 });
 
 /*
@@ -60,16 +52,15 @@ Route::middleware('guest')->group(function () {
 */
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->middleware('verified')->name('dashboard.index');
+    // Single endpoint
+    Route::get('profile', 'ProfileController@edit')->name('profile.edit');
+    Route::post('logout', 'AuthenticatedController@destroy')->name('logout');
+    Route::patch('profile', 'ProfileController@update')->name('profile.update');
+    Route::get('dashboard', 'DashboardController@index')->middleware('verified')->name('dashboard.index');
 
-    Route::resource('project', ProjectController::class);
-    Route::resource('contact', ContactController::class, ['only' => ['index', 'show']]);
-    Route::resource('translate', TranslateController::class, ['except' => ['show']]);
-
-    Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
-
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+    // Resource endpoint 
+    Route::resource('project', 'ProjectController');
+    Route::resource('translate', 'TranslateController')->except('show');
+    Route::resource('contact', 'ContactController')->only('index', 'show');
+    Route::resource('about', 'AboutController')->only('index', 'create', 'store');
 });
