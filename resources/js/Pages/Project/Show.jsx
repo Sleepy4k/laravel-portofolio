@@ -1,9 +1,11 @@
 // Import Core Libraries
 import { Head } from "@inertiajs/inertia-react";
 
-// Import Components
-import ShowForm from "@/Components/Project/ShowForm";
+// Import Layouts
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+
+// Import Custom Components
+import ShowForm from "@/Components/Project/ShowForm";
 
 export default function ProjectShow(props) {
     return (

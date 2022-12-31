@@ -8,8 +8,20 @@ use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use App\Http\Requests\Auth\LoginRequest;
 
-class AuthenticatedSessionController extends Controller
+class AuthenticatedController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Inertia\Response
+     */
+    public function index()
+    {
+        return Inertia::render('Auth/Login', [
+            'status' => session('status'),
+        ]);
+    }
+
     /**
      * Display the login view.
      *
@@ -17,9 +29,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Auth/Login', [
-            'status' => session('status'),
-        ]);
+        abort(404);
     }
 
     /**
@@ -38,6 +48,40 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        abort(404);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        abort(404);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        abort(404);
+    }
+
+    /**
      * Destroy an authenticated session.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -51,6 +95,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return to_route('landing.index');
     }
 }

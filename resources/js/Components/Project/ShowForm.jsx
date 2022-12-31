@@ -7,8 +7,10 @@ import Form from "react-bootstrap/Form";
 export default function ShowForm({ project }) {
     return (
         <Form>
-            <Form.Group className="mb-3" controlId="title">
-                <Form.Label>{transData("form.project.title")}</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="title">
+                    {transData("form.project.title")}
+                </Form.Label>
                 <Form.Control
                     type="text"
                     name="title"
@@ -17,8 +19,10 @@ export default function ShowForm({ project }) {
                     disabled
                 />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="description">
-                <Form.Label>{transData("form.project.description")}</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="description">
+                    {transData("form.project.description")}
+                </Form.Label>
                 <Form.Control
                     type="text"
                     name="description"
@@ -27,8 +31,10 @@ export default function ShowForm({ project }) {
                     disabled
                 />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="id">
-                <Form.Label>{transData("form.project.image")}</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="image">
+                    {transData("form.project.image")}
+                </Form.Label>
                 {project.image ? (
                     <img
                         src={"/storage/image/" + project.image}

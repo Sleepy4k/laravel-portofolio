@@ -1,9 +1,11 @@
 // Import Core Libraries
 import { Head } from "@inertiajs/inertia-react";
 
-// Import Components
-import EditForm from "@/Components/Project/EditForm";
+// Import Layouts
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+
+// Import Custom Components
+import EditForm from "@/Components/Project/EditForm";
 
 export default function ProjectEdit(props) {
     return (

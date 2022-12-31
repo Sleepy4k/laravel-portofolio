@@ -1,11 +1,14 @@
 // Import Core Libraries
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Inertia } from "@inertiajs/inertia";
 import { Link } from "@inertiajs/inertia-react";
 
 // Import Bootstrap Components
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+
+// Import Custom Components
+import InputError from "../InputError";
 
 export default function EditForm({ project, errors }) {
     const [validated, setValidated] = useState(false);
@@ -51,8 +54,10 @@ export default function EditForm({ project, errors }) {
 
     return (
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="title">
-                <Form.Label>{transData("form.project.title")}</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="title">
+                    {transData("form.project.title")}
+                </Form.Label>
                 <Form.Control
                     type="text"
                     name="title"
@@ -62,12 +67,12 @@ export default function EditForm({ project, errors }) {
                     required
                     autoFocus
                 />
-                {errors.title && (
-                    <div className="invalid-feedback">{errors.title}</div>
-                )}
+                <InputError message={errors.title} className="mt-2" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="description">
-                <Form.Label>{transData("form.project.description")}</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="description">
+                    {transData("form.project.description")}
+                </Form.Label>
                 <Form.Control
                     type="text"
                     name="description"
@@ -79,12 +84,12 @@ export default function EditForm({ project, errors }) {
                     required
                     autoFocus
                 />
-                {errors.description && (
-                    <div className="invalid-feedback">{errors.description}</div>
-                )}
+                <InputError message={errors.description} className="mt-2" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="image">
-                <Form.Label>{transData("form.project.image")}</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="image">
+                    {transData("form.project.image")}
+                </Form.Label>
                 {project.image ? (
                     <img
                         src={"/storage/image/" + project.image}
@@ -105,9 +110,7 @@ export default function EditForm({ project, errors }) {
                     name="image"
                     onChange={handleChanges}
                 />
-                {errors.image && (
-                    <div className="invalid-feedback">{errors.image}</div>
-                )}
+                <InputError message={errors.image} className="mt-2" />
             </Form.Group>
             <Link
                 href={route("project.index")}

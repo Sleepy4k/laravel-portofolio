@@ -2,10 +2,12 @@
 import { useEffect } from "react";
 import { Head, Link, useForm } from "@inertiajs/inertia-react";
 
-// Import Components
+// Import Layouts
+import GuestLayout from "@/Layouts/GuestLayout";
+
+// Import Custom Components
 import Checkbox from "@/Components/Checkbox";
 import TextInput from "@/Components/TextInput";
-import GuestLayout from "@/Layouts/GuestLayout";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
@@ -102,7 +104,11 @@ export default function Login({ status }) {
                 </div>
 
                 <div className="flex items-center justify-end mt-4">
-                    <Link href="/" as="button" className="btn btn-success">
+                    <Link
+                        href={route("landing.index")}
+                        as="button"
+                        className="btn btn-success"
+                    >
                         {transData("form.login.back")}
                     </Link>
 

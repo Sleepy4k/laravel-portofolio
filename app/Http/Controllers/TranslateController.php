@@ -13,7 +13,7 @@ class TranslateController extends Controller
      * Display a listing of the resource.
      *
      * @param  \App\Services\TranslateService  $service
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function index(TranslateService $service)
     {
@@ -24,7 +24,7 @@ class TranslateController extends Controller
      * Show the form for creating a new resource.
      *
      * @param  \App\Services\TranslateService  $service
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function create(TranslateService $service)
     {
@@ -58,7 +58,7 @@ class TranslateController extends Controller
             ]);
         }
 
-        return back();
+        abort(404);
     }
 
     /**
@@ -66,7 +66,7 @@ class TranslateController extends Controller
      *
      * @param  \App\Services\TranslateService  $service
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function edit(TranslateService $service, $id)
     {

@@ -1,11 +1,13 @@
 // Import Core Libraries
 import { Head } from "@inertiajs/inertia-react";
 
-// Import Components
+// Import Layouts
+import PortofolioLayout from "@/Layouts/PortofolioLayout";
+
+// Import Custom Components
 import About from "@/Components/Portofolio/About";
 import Contact from "@/Components/Portofolio/Contact";
 import Projects from "@/Components/Portofolio/Projects";
-import PortofolioLayout from "@/Layouts/PortofolioLayout";
 import Jumbotron from "@/Components/Portofolio/Jumbotron";
 
 export default function Portofolio(props) {

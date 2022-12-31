@@ -4,18 +4,19 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Http\Requests\ProfileUpdateRequest;
+use App\Services\DashboardService;
 
-class ProfileController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param  \App\Services\DashboardService  $service
+     * @return \Inertia\Response
      */
-    public function index()
+    public function index(DashboardService $service)
     {
-        abort(404);
+        return Inertia::render('Dashboard', $service->index());
     }
 
     /**
@@ -51,33 +52,26 @@ class ProfileController extends Controller
     }
 
     /**
-     * Display the user's profile form.
+     * Show the form for editing the specified resource.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Inertia\Response
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit($id)
     {
-        return Inertia::render('Profile/Edit');
+        abort(404);
     }
 
     /**
-     * Update the user's profile information.
+     * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\ProfileUpdateRequest  $request
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProfileUpdateRequest $request)
+    public function update(Request $request, $id)
     {
-        $request->user()->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
-
-        $request->user()->save();
-
-        return to_route('profile.edit');
+        abort(404);
     }
 
     /**

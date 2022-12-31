@@ -2,7 +2,7 @@
 import { Transition } from "@headlessui/react";
 import { Link, useForm, usePage } from "@inertiajs/inertia-react";
 
-// Import Components
+// Import Custom Components
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";

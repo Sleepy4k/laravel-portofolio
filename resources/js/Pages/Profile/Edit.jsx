@@ -1,8 +1,10 @@
 // Import Core Libraries
 import { Head } from "@inertiajs/inertia-react";
 
-// Import Components
+// Import Layouts
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+
+// Import Partials
 import UpdatePasswordForm from "./Partials/UpdatePasswordForm";
 import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm";
 

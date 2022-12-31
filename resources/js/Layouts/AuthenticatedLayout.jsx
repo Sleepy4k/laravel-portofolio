@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link } from "@inertiajs/inertia-react";
 
-// Import Components
+// Import Custom Components
 import NavLink from "@/Components/NavLink";
 import Dropdown from "@/Components/Dropdown";
 import ApplicationLogo from "@/Components/ApplicationLogo";
@@ -30,6 +30,15 @@ export default function Authenticated({ auth, children }) {
                                     active={route().current("dashboard.index")}
                                 >
                                     Dashboard
+                                </NavLink>
+                            </div>
+
+                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink
+                                    href={route("about.index")}
+                                    active={route().current("about.index")}
+                                >
+                                    About
                                 </NavLink>
                             </div>
 
@@ -161,6 +170,33 @@ export default function Authenticated({ auth, children }) {
                             active={route().current("dashboard")}
                         >
                             Dashboard
+                        </ResponsiveNavLink>
+                    </div>
+
+                    <div className="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink
+                            href={route("about.index")}
+                            active={route().current("about.index")}
+                        >
+                            About
+                        </ResponsiveNavLink>
+                    </div>
+
+                    <div className="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink
+                            href={route("contact.index")}
+                            active={route().current("contact.index")}
+                        >
+                            Contact
+                        </ResponsiveNavLink>
+                    </div>
+
+                    <div className="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink
+                            href={route("project.index")}
+                            active={route().current("project.index")}
+                        >
+                            Project
                         </ResponsiveNavLink>
                     </div>
 

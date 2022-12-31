@@ -2,7 +2,9 @@
 
 namespace App\Services;
 
-class PortofolioService extends Service
+use Illuminate\Foundation\Application;
+
+class DashboardService extends Service
 {
     /**
      * Display a listing of the resource.
@@ -12,8 +14,8 @@ class PortofolioService extends Service
     public function index()
     {
         return [
-            'about' => $this->aboutInterface->findById(1),
-            'projects' => $this->projectInterface->all()
+            'phpVersion' => PHP_VERSION,
+            'laravelVersion' => Application::VERSION
         ];
     }
 }
