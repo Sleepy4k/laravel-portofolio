@@ -1,9 +1,11 @@
 // Import Core Libraries
 import { Head } from "@inertiajs/inertia-react";
 
-// Import Components
-import CreateForm from "@/Components/Translate/CreateForm";
+// Import Layouts
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+
+// Import Custom Components
+import CreateForm from "@/Components/Translate/CreateForm";
 
 export default function TranslateCreate(props) {
     return (

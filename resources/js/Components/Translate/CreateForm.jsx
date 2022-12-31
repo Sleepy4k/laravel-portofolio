@@ -7,6 +7,9 @@ import { Link } from "@inertiajs/inertia-react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
+// Import Custom Components
+import InputError from "../InputError";
+
 export default function CreateForm({ errors }) {
     const [validated, setValidated] = useState(false);
     const [values, setValues] = useState({
@@ -37,8 +40,10 @@ export default function CreateForm({ errors }) {
 
     return (
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="group">
-                <Form.Label>{transData("form.translate.group")}</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="group">
+                    {transData("form.translate.group")}
+                </Form.Label>
                 <Form.Control
                     type="text"
                     name="group"
@@ -47,12 +52,12 @@ export default function CreateForm({ errors }) {
                     required
                     autoFocus
                 />
-                {errors.group && (
-                    <div className="invalid-feedback">{errors.group}</div>
-                )}
+                <InputError message={errors.group} className="mt-2" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="key">
-                <Form.Label>{transData("form.translate.key")}</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="key">
+                    {transData("form.translate.key")}
+                </Form.Label>
                 <Form.Control
                     type="text"
                     name="key"
@@ -61,12 +66,12 @@ export default function CreateForm({ errors }) {
                     required
                     autoFocus
                 />
-                {errors.key && (
-                    <div className="invalid-feedback">{errors.key}</div>
-                )}
+                <InputError message={errors.key} className="mt-2" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="id">
-                <Form.Label>{transData("form.translate.id")}</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="id">
+                    {transData("form.translate.id")}
+                </Form.Label>
                 <Form.Control
                     type="text"
                     name="id"
@@ -75,12 +80,12 @@ export default function CreateForm({ errors }) {
                     required
                     autoFocus
                 />
-                {errors.id && (
-                    <div className="invalid-feedback">{errors.id}</div>
-                )}
+                <InputError message={errors.id} className="mt-2" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="en">
-                <Form.Label>{transData("form.translate.en")}</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="en">
+                    {transData("form.translate.en")}
+                </Form.Label>
                 <Form.Control
                     type="text"
                     name="en"
@@ -89,9 +94,7 @@ export default function CreateForm({ errors }) {
                     required
                     autoFocus
                 />
-                {errors.en && (
-                    <div className="invalid-feedback">{errors.en}</div>
-                )}
+                <InputError message={errors.en} className="mt-2" />
             </Form.Group>
             <Link
                 href={route("translate.index")}

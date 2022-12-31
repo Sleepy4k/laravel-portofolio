@@ -1,10 +1,12 @@
 // Import Core Libraries
 import { Head } from "@inertiajs/inertia-react";
 
-// Import Components
+// Import Layouts
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+
+// Import Custom Components
 import Paginator from "@/Components/Paginator";
 import DataTable from "@/Components/Translate/DataTable";
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 export default function TranslateIndex(props) {
     return (

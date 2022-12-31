@@ -7,8 +7,10 @@ import Form from "react-bootstrap/Form";
 export default function ShowForm({ contact }) {
     return (
         <Form>
-            <Form.Group className="mb-3" controlId="name">
-                <Form.Label>{transData("form.contact.name")}</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="name">
+                    {transData("form.contact.name")}
+                </Form.Label>
                 <Form.Control
                     type="text"
                     name="name"
@@ -17,8 +19,10 @@ export default function ShowForm({ contact }) {
                     disabled
                 />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="email">
-                <Form.Label>{transData("form.contact.email")}</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="email">
+                    {transData("form.contact.email")}
+                </Form.Label>
                 <Form.Control
                     type="text"
                     name="email"
@@ -27,8 +31,10 @@ export default function ShowForm({ contact }) {
                     disabled
                 />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="message">
-                <Form.Label>{transData("form.contact.message")}</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="message">
+                    {transData("form.contact.message")}
+                </Form.Label>
                 <Form.Control
                     as="textarea"
                     rows={3}

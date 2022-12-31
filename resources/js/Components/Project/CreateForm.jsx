@@ -7,6 +7,9 @@ import { Link } from "@inertiajs/inertia-react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
+// Import Custom Components
+import InputError from "../InputError";
+
 export default function CreateForm({ errors }) {
     const [validated, setValidated] = useState(false);
     const [values, setValues] = useState({
@@ -51,8 +54,10 @@ export default function CreateForm({ errors }) {
 
     return (
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="title">
-                <Form.Label>{transData("form.project.title")}</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="title">
+                    {transData("form.project.title")}
+                </Form.Label>
                 <Form.Control
                     type="text"
                     name="title"
@@ -61,12 +66,12 @@ export default function CreateForm({ errors }) {
                     required
                     autoFocus
                 />
-                {errors.title && (
-                    <div className="invalid-feedback">{errors.title}</div>
-                )}
+                <InputError message={errors.title} className="mt-2" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="description">
-                <Form.Label>{transData("form.project.description")}</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="description">
+                    {transData("form.project.description")}
+                </Form.Label>
                 <Form.Control
                     as="textarea"
                     rows={3}
@@ -78,21 +83,19 @@ export default function CreateForm({ errors }) {
                     required
                     autoFocus
                 />
-                {errors.description && (
-                    <div className="invalid-feedback">{errors.description}</div>
-                )}
+                <InputError message={errors.description} className="mt-2" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="image">
-                <Form.Label>{transData("form.project.image")}</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="image">
+                    {transData("form.project.image")}
+                </Form.Label>
                 <img className="show-project-image mb-3" width={100} />
                 <Form.Control
                     type="file"
                     name="image"
                     onChange={handleChanges}
                 />
-                {errors.image && (
-                    <div className="invalid-feedback">{errors.image}</div>
-                )}
+                <InputError message={errors.image} className="mt-2" />
             </Form.Group>
             <Link
                 href={route("project.index")}

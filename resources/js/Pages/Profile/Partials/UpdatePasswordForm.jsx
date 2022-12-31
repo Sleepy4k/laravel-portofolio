@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { Transition } from "@headlessui/react";
 import { useForm } from "@inertiajs/inertia-react";
 
-// Import Components
+// Import Custom Components
 import TextInput from "@/Components/TextInput";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";

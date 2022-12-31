@@ -9,6 +9,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
+// Import Custom Components
+import InputError from "../InputError";
+
 export default function Contact({ errors }) {
     const [values, setValues] = useState({
         name: "",
@@ -46,8 +49,8 @@ export default function Contact({ errors }) {
                 <Row className="justify-content-center">
                     <Col className="col-md-6">
                         <Form onSubmit={handleSubmit}>
-                            <Form.Group className="mb-3" controlId="name">
-                                <Form.Label>
+                            <Form.Group className="mb-3">
+                                <Form.Label htmlFor="name">
                                     {transData("form.contact.name")}
                                 </Form.Label>
                                 <Form.Control
@@ -60,14 +63,13 @@ export default function Contact({ errors }) {
                                     required
                                     autoFocus
                                 />
-                                {errors.name && (
-                                    <div className="invalid-feedback">
-                                        {errors.name}
-                                    </div>
-                                )}
+                                <InputError
+                                    message={errors.name}
+                                    className="mt-2"
+                                />
                             </Form.Group>
-                            <Form.Group className="mb-3" controlId="email">
-                                <Form.Label>
+                            <Form.Group className="mb-3">
+                                <Form.Label htmlFor="email">
                                     {transData("form.contact.email")}
                                 </Form.Label>
                                 <Form.Control
@@ -80,14 +82,13 @@ export default function Contact({ errors }) {
                                     required
                                     autoFocus
                                 />
-                                {errors.email && (
-                                    <div className="invalid-feedback">
-                                        {errors.email}
-                                    </div>
-                                )}
+                                <InputError
+                                    message={errors.email}
+                                    className="mt-2"
+                                />
                             </Form.Group>
-                            <Form.Group className="mb-3" controlId="message">
-                                <Form.Label>
+                            <Form.Group className="mb-3">
+                                <Form.Label htmlFor="message">
                                     {transData("form.contact.message")}
                                 </Form.Label>
                                 <Form.Control
@@ -101,11 +102,10 @@ export default function Contact({ errors }) {
                                     required
                                     autoFocus
                                 />
-                                {errors.message && (
-                                    <div className="invalid-feedback">
-                                        {errors.message}
-                                    </div>
-                                )}
+                                <InputError
+                                    message={errors.message}
+                                    className="mt-2"
+                                />
                             </Form.Group>
                             <Button variant="primary" type="submit">
                                 {transData("form.contact.submit")}
