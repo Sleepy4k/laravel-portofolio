@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
             $table->string('app_name');
-            $table->string('app_icon')->default('null');
+            $table->string('app_icon')->nullable();
             $table->string('meta_author');
             $table->string('meta_keywords');
             $table->string('meta_description');
