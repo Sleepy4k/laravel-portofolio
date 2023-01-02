@@ -12,7 +12,20 @@ class ApplicationService extends Service
     public function index()
     {
         return [
-            'application' => $this->applicationInterface->findById(1)
+            'env' => [
+                'php' => phpversion(),
+                'laravel' => app()->version(),
+                'debug' => config('app.debug'),
+                'timezone' => config('app.timezone'),
+                'locale' => config('app.locale'),
+                'url' => config('app.url'),
+                'env' => config('app.env'),
+                'cache' => config('cache.default'),
+                'session' => config('session.driver'),
+                'database' => config('database.default'),
+                'filesystem' => config('filesystems.default'),
+                'log' => config('logging.default')
+            ]
         ];
     }
 
@@ -23,9 +36,7 @@ class ApplicationService extends Service
      */
     public function create()
     {
-        return [
-            'application' => $this->applicationInterface->findById(1)
-        ];
+        return [];
     }
 
     /**
@@ -38,8 +49,6 @@ class ApplicationService extends Service
     {
         try {
             $this->applicationInterface->update(1, $request);
-
-            toastr()->success('Data aplikasi berhasil di tambahkan', 'System');
 
             return true;
         } catch (\Throwable $th) {
