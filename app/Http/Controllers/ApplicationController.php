@@ -2,55 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Web\System\ApplicationService;
-use App\Http\Requests\Web\System\Application\StoreRequest;
+use Inertia\Inertia;
+use Illuminate\Http\Request;
+use App\Services\ApplicationService;
+use App\Http\Requests\Application\StoreRequest;
 
 class ApplicationController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @param  \App\Services\Web\System\ApplicationService  $service
+     * @param  \App\Services\ApplicationService  $service
      * @return \Illuminate\Http\Response
      */
     public function index(ApplicationService $service)
     {
-        try {
-            return view($this->indexView, $service->index());
-        } catch (\Throwable $th) {
-            return $this->redirectError($th);
-        }
+        return Inertia::render('Setting/Index', $service->index());
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @param  \App\Services\Web\System\ApplicationService  $service
+     * @param  \App\Services\ApplicationService  $service
      * @return \Illuminate\Http\Response
      */
     public function create(ApplicationService $service)
     {
-        try {
-            return view($this->createView, $service->create());
-        } catch (\Throwable $th) {
-            return $this->redirectError($th);
-        }
+        return Inertia::render('Setting/Create', $service->create());
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Web\System\Application\StoreRequest  $request
-     * @param  \App\Services\Web\System\ApplicationService  $service
+     * @param  \App\Http\Requests\Application\StoreRequest  $request
+     * @param  \App\Services\ApplicationService  $service
      * @return \Illuminate\Http\Response
      */
     public function store(StoreRequest $request, ApplicationService $service)
     {
-        try {
-            return $service->store($request->validated()) ? to_route($this->routeName) : back();
-        } catch (\Throwable $th) {
-            return $this->redirectError($th);
-        }
+        return $service->store($request->validated()) ? to_route('setting.index') : back();
     }
 
     /**

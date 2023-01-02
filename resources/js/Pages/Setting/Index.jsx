@@ -5,21 +5,17 @@ import { Head } from "@inertiajs/inertia-react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 // Import Partials
-import Welcome from "@/Partials/Dashboard/Welcome";
+import Navbar from "@/Partials/Setting/Navbar";
 
-export default function DashboardIndex(props) {
+export default function SettingIndex(props) {
     return (
         <AuthenticatedLayout auth={props.auth} errors={props.errors}>
-            <Head title="Dashboard" />
+            <Head title="Setting" />
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="overflow-hidden sm:rounded-lg">
-                        <Welcome
-                            user={props.auth.user}
-                            php={props.phpVersion}
-                            laravel={props.laravelVersion}
-                        />
+                    <div className="bg-white overflow-hidden shadow-xl sm:rounded-lg py-5 px-10">
+                        <Navbar env={props.env} app={props.application} />
                     </div>
                 </div>
             </div>

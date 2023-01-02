@@ -27,7 +27,6 @@ class ApplicationRepository extends EloquentRepository implements ApplicationInt
     public function __construct(Application $model)
     {
         $this->model = $model;
-    
     }
 
     /**
@@ -41,11 +40,11 @@ class ApplicationRepository extends EloquentRepository implements ApplicationInt
     {
         try {
             $model = $this->findById($modelId);
-    
+
             if (array_key_exists('app_icon', $payload)) {
                 $payload['app_icon'] = $this->updateSingleFile('image', $payload['app_icon'], $model->app_icon);
             }
-    
+
             return $model->update($payload);
         } catch (\Throwable $th) {
             return $th->getMessage();
@@ -64,12 +63,12 @@ class ApplicationRepository extends EloquentRepository implements ApplicationInt
     public function findById(int $modelId, array $columns = ['*'], array $relations = [], array $appends = []): ?Model
     {
         try {
-            return Cache::remember('application.'.$modelId, now()->addDays(rand(1,2)), function() use ($modelId) {
+            return Cache::remember('application.' . $modelId, now()->addDays(rand(1, 2)), function () use ($modelId) {
                 return $this->model->findOrFail($modelId);
             });
         } catch (\Throwable $th) {
             $this->sendReportLog('error', $th->getMessage());
-            
+
             return false;
         }
     }

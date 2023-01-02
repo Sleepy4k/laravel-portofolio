@@ -65,5 +65,6 @@ Route::middleware('auth')->group(function () {
         Route::resource('translate', 'TranslateController')->except('show');
         Route::resource('contact', 'ContactController')->only('index', 'show');
         Route::resource('about', 'AboutController')->only('index', 'create', 'store');
+        Route::resource('setting', 'ApplicationController')->only('index', 'create', 'store');
     });
 });
