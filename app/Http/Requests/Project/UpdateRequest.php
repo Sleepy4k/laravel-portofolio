@@ -25,7 +25,6 @@ class UpdateRequest extends FormRequest
     {
         $id = basename(request()->path());
 
-        dd($this->title);
         return [
             'title' => ['required', 'string', 'max:255', 'unique:projects,title,' . $id],
             'description' => ['required', 'string'],
