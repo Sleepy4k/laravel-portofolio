@@ -52,7 +52,7 @@ export default function CreateForm({ about, errors }) {
         }
 
         setValidated(true);
-        Inertia.post("/about", values);
+        Inertia.post(route("about.store"), values);
     };
 
     return (

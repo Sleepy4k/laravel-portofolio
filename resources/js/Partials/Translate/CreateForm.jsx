@@ -35,7 +35,7 @@ export default function CreateForm({ errors }) {
         }
 
         setValidated(true);
-        Inertia.post("/translate", values);
+        Inertia.post(route("translate.store"), values);
     };
 
     return (

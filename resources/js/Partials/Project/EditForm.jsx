@@ -49,7 +49,7 @@ export default function EditForm({ project, errors }) {
         }
 
         setValidated(true);
-        Inertia.patch("/project/" + project.id, values);
+        Inertia.patch(route("project.update", project.id), values);
     };
 
     return (

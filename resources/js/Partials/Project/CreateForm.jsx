@@ -49,7 +49,7 @@ export default function CreateForm({ errors }) {
         }
 
         setValidated(true);
-        Inertia.post("/project", values);
+        Inertia.post(route("project.store"), values);
     };
 
     return (

@@ -29,7 +29,7 @@ export default function Contact({ errors }) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        Inertia.post("/contact", values);
+        Inertia.post(route("contact.store"), values);
 
         e.target.reset();
 
