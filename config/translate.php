@@ -268,6 +268,30 @@ return [
         ],
         [
             'group' => 'page',
+            'key' => 'setting.env',
+            'text' => [
+                'id' => 'Lingkungan',
+                'en' => 'Environment'
+            ]
+        ],
+        [
+            'group' => 'page',
+            'key' => 'setting.app',
+            'text' => [
+                'id' => 'Aplikasi',
+                'en' => 'Application'
+            ]
+        ],
+        [
+            'group' => 'page',
+            'key' => 'setting.edit',
+            'text' => [
+                'id' => 'Ubah',
+                'en' => 'Edit'
+            ]
+        ],
+        [
+            'group' => 'page',
             'key' => 'project.add',
             'text' => [
                 'id' => 'Tambah Projek',
@@ -597,6 +621,62 @@ return [
         [
             'group' => 'form',
             'key' => 'about.submit',
+            'text' => [
+                'id' => 'Kirim',
+                'en' => 'Submit'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'setting.app_name',
+            'text' => [
+                'id' => 'Nama Aplikasi',
+                'en' => 'Application Name'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'setting.app_icon',
+            'text' => [
+                'id' => 'Ikon Aplikasi',
+                'en' => 'Application Icon'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'setting.meta_author',
+            'text' => [
+                'id' => 'Pemilik Aplikasi',
+                'en' => 'Application Author'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'setting.meta_keywords',
+            'text' => [
+                'id' => 'Kata Kunci Aplikasi',
+                'en' => 'Application Keywords'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'setting.meta_description',
+            'text' => [
+                'id' => 'Deskripsi Aplikasi',
+                'en' => 'Application Description'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'setting.back',
+            'text' => [
+                'id' => 'Kembali',
+                'en' => 'Back'
+            ]
+        ],
+        [
+            'group' => 'form',
+            'key' => 'setting.submit',
             'text' => [
                 'id' => 'Kirim',
                 'en' => 'Submit'
