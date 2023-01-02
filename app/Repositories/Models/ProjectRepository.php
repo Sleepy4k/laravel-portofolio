@@ -67,7 +67,6 @@ class ProjectRepository extends EloquentRepository implements ProjectInterface
                 $payload['image'] = $this->updateSingleFile('image', $payload['image'], $model->image);
             }
 
-            $this->sendReportLog('error', $payload);
             return $model->update($payload);
         } catch (\Throwable $th) {
             $this->sendReportLog('error', $th->getMessage());
