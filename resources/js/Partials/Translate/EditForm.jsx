@@ -41,7 +41,7 @@ export default function EditForm({ translate, errors }) {
             values.group + "." + values.key
         );
 
-        Inertia.patch("/translate/" + translate.id, values);
+        Inertia.patch(route("translate.update", translate.id), values);
     };
 
     return (
